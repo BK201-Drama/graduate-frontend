@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd'
-// import 'antd/dist/reset.css'
+import 'antd/dist/reset.css'
 import zhCN from 'antd/locale/zh_CN'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
