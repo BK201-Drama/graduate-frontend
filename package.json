@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "cz": "npx lint-staged && cz",
+    "commit": "npx lint-staged && commit",
     "lint": "eslint --fix src/**/*.js"
   },
   "lint-staged": {

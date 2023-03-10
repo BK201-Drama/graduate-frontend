@@ -8,10 +8,42 @@
 - shared: 分享物，在这里用于放置跟业务数据无关的组件
 - styles: 样式，在这里用于放置样式
 
-# 注意事项
+# 目录注意事项
 
 1. pages 的文件之间的引用必须保持树形结构，父目录文件引用子目录文件
 2. 有多个被使用的业务相关的组件，建议抽出来放到 features 中
 3. features 组件的封装，应直接使用 antd 组件和 shared 组件来进行封装，数据采用 domains 的 stores，如果用 features 内部若干组件组合封装，就需要有树形结构
 4. shared 的组件必须全部依赖 props 来传入数据，而且不要依赖 public 的常量
 5. src 下的 utils 不允许依赖 public 的常量数据，只有 public 下的 utils 才能依赖常量数据
+
+# 提交代码流程
+
+1. 在多人协作模式里，如果要开发自己的功能，需要从 dev 里面 checkout 一个自己的开发功能的分支：
+
+```git
+git checkout -b feature/lkd-branch
+```
+
+2. 添加代码到暂存区
+
+```git
+git add .
+```
+
+3. 提交代码（不建议使用 git commit -m, 已经配好了提交指令）
+
+```git
+yarn commit
+```
+
+4. 在`yarn commit`指令里面，选择你所提交代码的类型，比如是 feat\fix\chore 等，并且书写提交的概要和详细内容
+
+下面是几个常见的指令:
+
+- feat: 添加功能
+- fix: 修复 bug
+- chore: 添加依赖项
+- refactor: 重构代码，但是不添加功能
+- wip: 添加功能，但未完成(work in progress)
+- style: 添加样式
+- doc: 改变文档内容
