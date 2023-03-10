@@ -30,7 +30,7 @@ git checkout -b feature/lkd-branch
 git add .
 ```
 
-3. 提交代码（不建议使用 git commit -m, 已经配好了提交指令）
+3. 提交代码（不建议使用 git commit -m, 已经配好了提交指令，会在提交之前进行一次静态检查）
 
 ```git
 yarn commit
