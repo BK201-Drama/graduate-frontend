@@ -47,3 +47,8 @@ yarn commit
 - wip: 添加功能，但未完成(work in progress)
 - style: 添加样式
 - doc: 改变文档内容
+
+# 一些写代码的注意事项
+
+1. 本项目适配了自动导入部分依赖，因此不需要自己自己引入 antd，包装好的 axios，stores 的内容
+2. 对于 css，建议使用 tailwind 来写
