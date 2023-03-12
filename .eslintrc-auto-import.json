@@ -31,6 +31,7 @@
     "makeAutoObservable": true,
     "makeObservable": true,
     "memo": true,
+    "message": true,
     "observable": true,
     "observe": true,
     "observer": true,

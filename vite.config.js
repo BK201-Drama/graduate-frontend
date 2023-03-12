@@ -29,6 +29,7 @@ export default defineConfig({
             'Select',
             'Switch',
             'Tag',
+            'message',
           ],
         },
       ],

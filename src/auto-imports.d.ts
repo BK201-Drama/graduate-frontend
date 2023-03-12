@@ -35,6 +35,7 @@ declare global {
   const makeAutoObservable: typeof import('mobx')['makeAutoObservable'];
   const makeObservable: typeof import('mobx')['makeObservable'];
   const memo: typeof import('react')['memo'];
+  const message: typeof import('antd')['message'];
   const observable: typeof import('mobx')['observable'];
   const observe: typeof import('mobx')['observe'];
   const observer: typeof import('mobx-react-lite')['observer'];
