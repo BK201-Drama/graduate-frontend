@@ -1,20 +1,32 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es6: true,
+    node: true,
   },
   extends: [
+    'eslint:recommended',
     'plugin:react/recommended',
     'google',
     'plugin:prettier/recommended',
+    './.eslintrc-auto-import.json',
   ],
   overrides: [],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    parser: 'babel-eslint',
   },
   plugins: ['react'],
   rules: {
-    quotes: ['error', 'single'],
+    quotes: [2, 'single'], // 单引号
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-undef': 'off',
+    'react/jsx-no-undef': 'off',
+  },
+  settings: {
+    'import/ignore': ['node_modules'],
   },
 };

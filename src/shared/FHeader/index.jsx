@@ -1,9 +1,9 @@
-import { Button, Layout } from 'antd'
+import { Button, Layout } from 'antd';
 
-const { Header } = Layout
+const { Header } = Layout;
 
 const FHeader = () => {
-  const logout = () => {}
+  const logout = () => {};
 
   return (
     <Header>
@@ -17,7 +17,7 @@ const FHeader = () => {
         </div>
       </div>
     </Header>
-  )
-}
+  );
+};
 
-export default FHeader
+export default FHeader;

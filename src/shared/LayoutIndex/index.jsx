@@ -6,18 +6,18 @@ import FHeader from '../FHeader';
 const { Content } = Layout;
 const LayoutIndex = () => {
   return (
-    <Layout className='min-h-[100vh] h-full'>
+    <Layout className="min-h-[100vh] h-full">
       <FHeader />
       <Layout>
         {/* <SideBar /> */}
-        <Layout className='bg-[#eee]'>
+        <Layout className="bg-[#eee]">
           <Content className="m-[0px] min-h-full">
             <Outlet />
           </Content>
         </Layout>
       </Layout>
     </Layout>
-  )
-}
+  );
+};
 
-export default LayoutIndex
+export default LayoutIndex;
