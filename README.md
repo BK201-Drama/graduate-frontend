@@ -50,5 +50,6 @@ yarn commit
 
 # 一些写代码的注意事项
 
-1. 本项目适配了自动导入部分依赖，因此不需要自己自己引入 antd，包装好的 axios，stores 的内容，以及 react-hooks 的所有内容
-2. 对于 css，建议使用 tailwind 来写
+1. 推荐使用 vscode
+2. 本项目适配了自动导入部分依赖，因此不需要自己自己引入 antd，包装好的 axios，stores 的内容，以及 react-hooks 的所有内容
+3. 对于 css，建议使用 tailwind 来写，建议下载辅助插件：Tailwind CSS IntelliSense

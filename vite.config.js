@@ -1,6 +1,7 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
 import autoImport from 'unplugin-auto-import/vite';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -41,4 +42,49 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    // 用于对特定目录做特殊标记
+    alias: [
+      {
+        find: '@',
+        replacement: resolve(__dirname, './src'),
+      },
+      {
+        find: '@/core',
+        replacement: resolve(__dirname, './src/core'),
+      },
+      {
+        find: '@/domains',
+        replacement: resolve(__dirname, './src/domains'),
+      },
+      {
+        find: '@/features',
+        replacement: resolve(__dirname, './src/features'),
+      },
+      {
+        find: '@/pages',
+        replacement: resolve(__dirname, './src/pages'),
+      },
+      {
+        find: '@/public',
+        replacement: resolve(__dirname, './src/public'),
+      },
+      {
+        find: '@/shared',
+        replacement: resolve(__dirname, './src/shared'),
+      },
+      {
+        find: '@/styles',
+        replacement: resolve(__dirname, './src/styles'),
+      },
+      {
+        find: '@/utils',
+        replacement: resolve(__dirname, './src/utils'),
+      },
+      {
+        find: /^~/,
+        replacement: '',
+      },
+    ],
+  },
 });

@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import LayoutIndex from '../../shared/LayoutIndex';
+import LayoutIndex from '@/shared/LayoutIndex';
 
 export const routers = [
   {
@@ -8,11 +8,11 @@ export const routers = [
     children: [
       {
         path: '/user-management/user',
-        component: lazy(() => import('../../pages/userManagement/User')),
+        component: lazy(() => import('@/pages/userManagement/User')),
       },
       {
         path: '/user-management/role',
-        component: lazy(() => import('../../pages/userManagement/Role')),
+        component: lazy(() => import('@/pages/userManagement/Role')),
       },
     ],
   },
@@ -22,7 +22,7 @@ export const routers = [
     children: [
       {
         path: '/examine/commentary',
-        component: lazy(() => import('../../pages/examine/Commentary')),
+        component: lazy(() => import('@/pages/examine/Commentary')),
       },
     ],
   },
