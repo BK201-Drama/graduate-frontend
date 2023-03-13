@@ -53,8 +53,10 @@ export default defineConfig({
         },
         { '@/core/store': ['useStores', 'stores'] },
         { '@/core/routes': ['getRouters'] },
+        { '@/core/services/axios.js': ['get', 'post'] },
         { '@/shared/FHeader': [['default', 'FHeader']] },
         { '@/shared/LayoutIndex': [['default', 'LayoutIndex']] },
+        { '@/shared/Question': [['default', 'Question']] },
       ],
       dts: './src/auto-imports.d.ts',
       eslintrc: {

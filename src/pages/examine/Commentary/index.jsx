@@ -4,6 +4,7 @@ const Commentary = () => {
   return (
     <div>
       <Button>Commentary</Button>
+      <Question />
     </div>
   );
 };

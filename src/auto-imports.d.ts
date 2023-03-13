@@ -47,6 +47,7 @@ declare global {
   const flow: typeof import('mobx')['flow'];
   const flowResult: typeof import('mobx')['flowResult'];
   const forwardRef: typeof import('react')['forwardRef'];
+  const get: typeof import('@/core/services/axios.js')['get'];
   const getRouters: typeof import('@/core/routes')['getRouters'];
   const intercept: typeof import('mobx')['intercept'];
   const lazy: typeof import('react')['lazy'];
@@ -60,6 +61,7 @@ declare global {
   const onBecomeObserved: typeof import('mobx')['onBecomeObserved'];
   const onBecomeUnobserved: typeof import('mobx')['onBecomeUnobserved'];
   const onReactionError: typeof import('mobx')['onReactionError'];
+  const post: typeof import('@/core/services/axios.js')['post'];
   const reaction: typeof import('mobx')['reaction'];
   const runInAction: typeof import('mobx')['runInAction'];
   const startTransition: typeof import('react')['startTransition'];
