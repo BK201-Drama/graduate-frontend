@@ -1,6 +1,3 @@
-import React, { lazy, Suspense } from 'react';
-import LayoutIndex from '@/shared/LayoutIndex';
-
 export const routers = [
   {
     path: '',
