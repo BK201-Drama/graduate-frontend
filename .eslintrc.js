@@ -23,7 +23,6 @@ module.exports = {
     quotes: [2, 'single'], // 单引号
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'no-undef': 'off',
     'react/jsx-no-undef': 'off',
     'react/prop-types': 0,
   },
