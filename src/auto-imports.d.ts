@@ -23,6 +23,7 @@ declare global {
   const Pagination: typeof import('antd')['Pagination'];
   const Popconfirm: typeof import('antd')['Popconfirm'];
   const Popover: typeof import('antd')['Popover'];
+  const Question: typeof import('@/shared/Question')['default'];
   const Radio: typeof import('antd')['Radio'];
   const Route: typeof import('react-router-dom')['Route'];
   const Routes: typeof import('react-router-dom')['Routes'];
@@ -39,6 +40,7 @@ declare global {
   const Tree: typeof import('antd')['Tree'];
   const TreeSelect: typeof import('antd')['TreeSelect'];
   const Upload: typeof import('antd')['Upload'];
+  const _: typeof import('lodash')['default'];
   const action: typeof import('mobx')['action'];
   const autorun: typeof import('mobx')['autorun'];
   const computed: typeof import('mobx')['computed'];

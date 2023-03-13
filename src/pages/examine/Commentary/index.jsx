@@ -4,7 +4,7 @@ const Commentary = () => {
   return (
     <div>
       <Button>Commentary</Button>
-      <Question />
+      <Question title={'titletext'} questionOrder={0} options={[]} />
     </div>
   );
 };

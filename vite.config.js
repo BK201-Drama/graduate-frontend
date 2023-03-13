@@ -51,6 +51,9 @@ export default defineConfig({
         {
           react: ['Suspense', 'lazy'],
         },
+        {
+          lodash: [['default', '_']],
+        },
         { '@/core/store': ['useStores', 'stores'] },
         { '@/core/routes': ['getRouters'] },
         { '@/core/services/axios.js': ['get', 'post'] },
