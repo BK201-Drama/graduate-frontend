@@ -25,6 +25,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-no-undef': 'off',
     'react/prop-types': 0,
+    'require-jsdoc': 'off',
   },
   settings: {
     'import/ignore': ['node_modules'],
