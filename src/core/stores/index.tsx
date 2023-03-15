@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
 
-// eslint-disable-next-line require-jsdoc
 function createStores() {
   return {};
 }
