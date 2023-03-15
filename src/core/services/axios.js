@@ -3,7 +3,7 @@ import { requestType } from '@/public/constants';
 
 // 创建请求实例
 const instance = originAxios.create({
-  baseURL: 'http://10.39.10.199:8080/api',
+  baseURL: 'http://192.168.1.39:5000/api',
   timeout: 30000,
 });
 

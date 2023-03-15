@@ -2,7 +2,9 @@ const { Header } = Layout;
 
 const FHeader = () => {
   const logout = () => {};
-
+  get('/', {
+    a: [1, 2, 4],
+  });
   return (
     <Header>
       <div className="flex items-center h-full justify-between">
