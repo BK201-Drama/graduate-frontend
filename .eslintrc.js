@@ -21,13 +21,16 @@ module.exports = {
   plugins: ['react'],
   rules: {
     quotes: [2, 'single'], // 单引号
+    semi: [0],
+    'prettier/prettier': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-no-undef': 'off',
     'react/prop-types': 0,
     'require-jsdoc': 'off',
+    'linebreak-style': [0, 'window'], // 让在windows的CRLF文件不告警处理
   },
   settings: {
     'import/ignore': ['node_modules'],
   },
-};
+}
