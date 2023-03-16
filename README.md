@@ -5,7 +5,7 @@
 - features: 特征，在这里用于放置跟业务数据有关并且被复用的组件或者 hooks，比如选择用户的选择栏，业务 hooks 等
 - pages: 页面
 - public: 里面放置常量等
-- shared: 分享物，在这里用于放置跟业务数据无关的组件
+- shared: 分享物，在这里用于放置跟业务数据无关的公共组件
 - styles: 样式，在这里用于放置样式
 
 # 目录注意事项
@@ -50,7 +50,7 @@ yarn commit
 
 # 一些写代码的注意事项
 
-1. 推荐使用 vscode
+1. 推荐使用 vscode，这里配置了 vscode 相关的 eol，不然很容易产生 CRLF 文件导致 yarn commit 过不了 lint
 2. 本项目适配了自动导入部分依赖，因此不需要自己自己引入 antd，包装好的 axios，stores 的内容，以及 react-hooks 的所有内容
 3. 对于 css，建议使用 tailwind 来写，建议下载辅助插件：Tailwind CSS IntelliSense
 4. 关于路径，我们统一使用@/...进行编写，其中，具体可以参考项目内的引入，并且如果想要自动提示，建议下载辅助插件: Path Intellisense

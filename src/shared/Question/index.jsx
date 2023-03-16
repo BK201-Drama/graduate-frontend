@@ -1,13 +1,14 @@
-const Question = ({ title, questionOrder, options }) => {
+const Question = ({ title, questionOrder, options, className = '', id }) => {
+  const order = questionOrder + 1
   return (
-    <div>
+    <div id={`${id}`} className={className}>
       <div className="flex items-center gap-[2px]">
-        {!_.isNil(questionOrder) ? <div>{`${questionOrder + 1}.`}</div> : null}
+        {!_.isNil(questionOrder) ? <div>{`${order}.`}</div> : null}
         <div>{title ?? '-'}</div>
       </div>
       <Radio.Group options={options ?? []} />
     </div>
-  );
-};
+  )
+}
 
-export default Question;
+export default Question
