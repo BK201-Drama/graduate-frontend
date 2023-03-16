@@ -41,6 +41,9 @@ const Commentary = () => {
             title={question.title}
             questionOrder={index}
             options={question.options}
+            onChange={(value) => {
+              console.log(value, question.id)
+            }}
           />
         ))}
       </div>

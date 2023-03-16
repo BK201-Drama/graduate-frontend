@@ -2,7 +2,11 @@ import { Anchor } from 'antd'
 import './index.less'
 
 const { Link } = Anchor
-
+/*
+ * @params
+ * questions: 题目数组，后续做接口隔离，只依赖题目id和当前题目顺序
+ * answer: 考生做的题目，这里选用json格式，因为做题不一定是按顺序的
+ **/
 const QuestionAnchor = ({ questions, answer }) => {
   const items = questions.map((question, index) => ({
     key: question?.id,
