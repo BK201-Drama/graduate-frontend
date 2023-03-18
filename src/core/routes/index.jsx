@@ -1,3 +1,5 @@
+import Login from '@/pages/Login'
+
 export const routers = [
   {
     path: '',
@@ -23,19 +25,23 @@ export const routers = [
       },
     ],
   },
-];
+  {
+    path: '/login',
+    component: () => <Login />,
+  },
+]
 
 export const changeRouter = (routers) => {
   return routers.map((route) => {
-    if (route.children) route.children = changeRouter(route.children);
+    if (route.children) route.children = changeRouter(route.children)
 
     route.element = (
       <Suspense>
         <route.component />
       </Suspense>
-    );
-    return route;
-  });
-};
+    )
+    return route
+  })
+}
 
-export const getRouters = () => changeRouter(routers);
+export const getRouters = () => changeRouter(routers)
