@@ -11,7 +11,7 @@ const QuestionAnchor = ({ questions, answer }) => {
   const items = questions.map((question, index) => ({
     key: question?.id,
     href: `#${question?.id}`,
-    title: index + 1,
+    title: index + NUMBER_ONE,
   }))
   return (
     <div>
