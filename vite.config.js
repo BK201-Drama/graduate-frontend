@@ -1,7 +1,7 @@
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
-import autoImport from 'unplugin-auto-import/vite';
-import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
+import autoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -60,6 +60,9 @@ export default defineConfig({
         { '@/shared/FHeader': [['default', 'FHeader']] },
         { '@/shared/LayoutIndex': [['default', 'LayoutIndex']] },
         { '@/shared/Question': [['default', 'Question']] },
+        {
+          '@/public/constants': ['NUMBER_ONE', 'NO_FOUND_INDEX', 'NUMBER_ZERO'],
+        },
       ],
       dts: './src/auto-imports.d.ts',
       eslintrc: {
@@ -114,4 +117,4 @@ export default defineConfig({
       },
     ],
   },
-});
+})

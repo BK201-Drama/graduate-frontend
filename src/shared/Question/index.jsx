@@ -15,7 +15,7 @@ const Question = ({
   id,
   onChange,
 }) => {
-  const order = questionOrder + 1
+  const order = questionOrder + NUMBER_ONE
   const change = (e) => {
     onChange?.(e.target.value)
   }

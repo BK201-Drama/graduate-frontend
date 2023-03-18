@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 module.exports = {
   env: {
     browser: true,
@@ -22,6 +23,7 @@ module.exports = {
   rules: {
     quotes: [2, 'single'], // 单引号
     semi: [0],
+    'no-magic-numbers': 2,
     'prettier/prettier': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
