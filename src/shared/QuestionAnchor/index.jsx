@@ -22,7 +22,7 @@ const QuestionAnchor = ({ questions, answer }) => {
             href={`${item?.href}`}
             className={`${
               !_.isNil(answer?.[item?.key])
-                ? 'bg-[white]'
+                ? 'bg-[aqua]'
                 : 'bg-[lightblue] question-selected'
             }`}
             title={item?.title}
