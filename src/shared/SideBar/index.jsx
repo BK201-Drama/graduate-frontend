@@ -15,7 +15,7 @@ const items = [
       },
       {
         label: '角色列表',
-        key: 'user-management/role',
+        key: '/user-management/role',
       },
     ],
   },
@@ -23,12 +23,15 @@ const items = [
 
 const SideBar = () => {
   const navigate = useNavigate()
+  const path = useLocation()
+
   return (
     <Menu
       items={items}
       mode="inline"
       className="bg-[#fff]"
-      onClick={(e) => navigate(e.key)}
+      onSelect={({ key }) => navigate(key)}
+      selectedKeys={[path.pathname]}
     />
   )
 }
