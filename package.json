@@ -5,7 +5,9 @@
   "type": "commonjs",
   "scripts": {
     "prepare": "husky install",
-    "dev": "vite --host",
+    "dev": "vite --host --mode development",
+    "pro": "vite --host --mode production",
+    "local": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "commit": "npx lint-staged && cz",
