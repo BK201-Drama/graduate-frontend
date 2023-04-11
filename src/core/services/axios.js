@@ -3,7 +3,7 @@ import { requestType } from '@/public/constants'
 
 // 创建请求实例
 const instance = originAxios.create({
-  baseURL: `${import.meta.VITE_BASE_URL}/api`,
+  baseURL: `${import.meta.env.VITE_BASEURL}/api`,
   timeout: 30000,
 })
 

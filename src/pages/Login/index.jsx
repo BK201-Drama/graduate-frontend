@@ -9,7 +9,7 @@ const Login = () => {
   }
   return (
     <div className="h-[100vh] bg-gradient-to-r from-blue-400 to-green-500 flex justify-center items-center">
-      <div className="bg-[#fff] w-[400px] h-[400px] rounded-[8px] backdrop-filter-hover flex justify-center items-center flex-col gap-[30px]">
+      <div className="bg-[#fff] w-[400px] h-[400px] rounded-[8px] backdrop-filter-hover flex justify-center items-center flex-col gap-[20px]">
         <h1>登录</h1>
         <Form form={formInstance}>
           <Item label="账号" name="username" rules={RULE}>
