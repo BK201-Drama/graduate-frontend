@@ -1,5 +1,6 @@
 {
   "globals": {
+    "BACKEND_STATUS": true,
     "Button": true,
     "Col": true,
     "Divider": true,

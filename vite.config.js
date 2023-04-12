@@ -69,7 +69,12 @@ export default defineConfig({
         { '@/shared/LayoutIndex': [['default', 'LayoutIndex']] },
         { '@/shared/Question': [['default', 'Question']] },
         {
-          '@/public/constants': ['NUMBER_ONE', 'NO_FOUND_INDEX', 'NUMBER_ZERO'],
+          '@/public/constants': [
+            'NUMBER_ONE',
+            'NO_FOUND_INDEX',
+            'NUMBER_ZERO',
+            'BACKEND_STATUS',
+          ],
         },
       ],
       dts: './src/auto-imports.d.ts',

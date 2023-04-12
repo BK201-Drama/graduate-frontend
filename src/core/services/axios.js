@@ -7,7 +7,7 @@ const instance = originAxios.create({
   timeout: 30000,
 })
 
-const request = (url, params, type) => {
+const request = (url, params = {}, type) => {
   let realData = {
     data: params,
   }
@@ -27,7 +27,10 @@ const request = (url, params, type) => {
       },
       validateStatus: () => true,
     })
-      .then((res) => resolve(res))
+      .then((res) => {
+        console.log(res)
+        resolve(res)
+      })
       .catch((err) => {
         message.error('请求异常')
         reject(err)
