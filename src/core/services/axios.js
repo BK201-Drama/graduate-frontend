@@ -28,8 +28,9 @@ const request = (url, params = {}, type) => {
       validateStatus: () => true,
     })
       .then((res) => {
-        console.log(res)
-        resolve(res)
+        console.log('res', res)
+        if ([res.data.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
+        else message.error(res.data.msg)
       })
       .catch((err) => {
         message.error('请求异常')

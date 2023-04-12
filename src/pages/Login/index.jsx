@@ -9,6 +9,7 @@ const Login = () => {
     formInstance.validateFields().then((params) => {
       // TODO: 账号密码的预先检查
       login(params)?.then((res) => {
+        console.log('???')
         if (res.data.code === BACKEND_STATUS.SUCCESS) {
           message.success('登录成功')
           localStorage.setItem('loginData', JSON.stringify(res.data.data))
