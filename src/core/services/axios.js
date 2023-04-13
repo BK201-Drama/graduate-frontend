@@ -1,10 +1,20 @@
 import originAxios from 'axios'
 import { requestType } from '@/public/constants'
+import * as requestInterceptors from '@/core/services/interceptors/request'
+import * as responseInterceptors from '@/core/services/interceptors/response'
 
 // 创建请求实例
 const instance = originAxios.create({
   baseURL: `${import.meta.env.VITE_BASEURL}/api`,
   timeout: 30000,
+})
+
+Object.values(requestInterceptors).forEach((fn) => {
+  fn?.(instance)
+})
+
+Object.values(responseInterceptors).forEach((fn) => {
+  fn?.(instance)
 })
 
 const request = (url, params = {}, type) => {
@@ -22,22 +32,18 @@ const request = (url, params = {}, type) => {
       method: type,
       url,
       ...realData,
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-      },
       validateStatus: () => true,
     })
       .then((res) => {
-        console.log('res', res)
         if ([res.data.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
-        else message.error(res.data.msg)
+        else message.error(res.data?.msg ?? res.data?.message)
       })
       .catch((err) => {
-        message.error('请求异常')
+        message.error('网络错误请求异常，请稍后再试')
         reject(err)
       })
       .finally(() => {
-        // TODO: 添加加载spin
+        // TODO: 添加加载spin特效
       })
   })
 }

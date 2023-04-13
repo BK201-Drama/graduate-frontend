@@ -1,19 +1,21 @@
 import { chooseRole, login } from '@/domains/login/index.repository'
+import { navHelper } from '@/utils/navHelper'
 
 const RULE = [{ required: true }]
 const { Item, useForm } = Form
 const Login = () => {
   const [formInstance] = useForm()
   const { data } = useRequest(chooseRole)
+  const navInstance = navHelper()
   const submit = () => {
     formInstance.validateFields().then((params) => {
       // TODO: 账号密码的预先检查
       login(params)?.then((res) => {
-        console.log('???')
-        if (res.data.code === BACKEND_STATUS.SUCCESS) {
-          message.success('登录成功')
-          localStorage.setItem('loginData', JSON.stringify(res.data.data))
-        }
+        message.success('登录成功')
+        localStorage.setItem('refresh_token', res.data.data.refresh_token)
+        localStorage.setItem('loginData', JSON.stringify(res.data.data.user))
+        localStorage.setItem('access_token', res.data.data.access_token)
+        navInstance?.toUserList()
       })
     })
   }

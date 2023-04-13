@@ -18,7 +18,7 @@
 
 # 提交代码流程
 
-1. 在多人协作模式里，如果要开发自己的功能，需要从 dev 里面 checkout 一个自己的开发功能的分支：
+1. 在多人协作模式里，如果要开发自己的功能，需要从 master 里面 checkout 一个自己的开发功能的分支：（本项目随便在 dev 里面 checkout 也行）
 
 ```git
 git checkout -b feature/lkd-branch
