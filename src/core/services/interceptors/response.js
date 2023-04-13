@@ -9,6 +9,7 @@ export const tokenJudgeConfig = (instance) => {
         })
         if (tokenData.data.code === BACKEND_STATUS.SUCCESS) {
           const accessToken = tokenData.data?.data?.access_token
+          localStorage.setItem('access_token', accessToken)
           config.headers = {
             ...config.headers,
             Authorization: accessToken,
@@ -16,7 +17,8 @@ export const tokenJudgeConfig = (instance) => {
           const result = await instance?.(config.config)
           return result
         } else {
-          console.log('都过期了，傻逼')
+          message.error('登录验证已过期，请重新登录')
+          window.location.pathname = '/login'
         }
       }
     },

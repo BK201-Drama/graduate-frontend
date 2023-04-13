@@ -1,7 +1,14 @@
-const { Header } = Layout;
+const { Header } = Layout
+import { navHelper } from '@/utils/navHelper'
 
 const FHeader = () => {
-  const logout = () => {};
+  const navInstance = navHelper()
+  const logout = () => {
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+    localStorage.removeItem('user')
+    navInstance.toLogin()
+  }
 
   return (
     <Header>
@@ -15,7 +22,7 @@ const FHeader = () => {
         </div>
       </div>
     </Header>
-  );
-};
+  )
+}
 
-export default FHeader;
+export default FHeader

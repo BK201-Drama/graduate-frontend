@@ -13,7 +13,7 @@ const LayoutIndex = () => {
           <SideBar />
         </Sider>
         <Layout>
-          <Content className="m-[0px] min-h-full">
+          <Content className="m-[15px] p-[10px] h-full bg-[#fff] rounded-[8px]">
             <Outlet />
           </Content>
         </Layout>
