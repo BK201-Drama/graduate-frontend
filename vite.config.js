@@ -54,7 +54,7 @@ export default defineConfig({
         {
           lodash: [['default', '_']],
         },
-        { '@/core/store': ['useStores', 'stores'] },
+        { '@/core/stores': ['useStores', 'stores'] },
         { '@/core/routes': ['getRouters'] },
         {
           '@/core/services/axios.js': [

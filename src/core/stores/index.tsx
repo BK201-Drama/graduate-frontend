@@ -1,11 +1,14 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from 'react'
+import { permissionStore } from '@/domains/permission/store/index.store'
 
 function createStores() {
-  return {};
+  return {
+    permissionStore,
+  }
 }
 
-export const stores = createStores();
+export const stores = createStores()
 
-export const StoresContext = createContext(stores);
+export const StoresContext = createContext(stores)
 
-export const useStores = () => useContext(StoresContext);
+export const useStores = () => useContext(StoresContext)

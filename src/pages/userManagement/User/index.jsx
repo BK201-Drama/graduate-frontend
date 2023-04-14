@@ -8,11 +8,15 @@ const User = () => {
   const { tableProps } = useAntdTable(getTableData(getUserList), {
     form: formInstance,
   })
+  const { permissionStore } = useStores()
   const columns = getColumns()
+  useEffect(() => {
+    permissionStore.getPermissionList()
+  }, [])
   return (
     <>
       <div>User</div>
-      <Table columns={columns} {...tableProps} />
+      <Table columns={columns} {...tableProps} rowKey="_id" />
     </>
   )
 }
