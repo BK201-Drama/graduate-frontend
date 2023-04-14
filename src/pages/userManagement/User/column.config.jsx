@@ -6,7 +6,10 @@ const getColumns = () => {
       title: '角色',
       dataIndex: 'role',
       key: 'role',
-      render: (role) => role.role_name,
+      render: (role) => {
+        const [{ role_name }] = role
+        return role_name
+      },
     },
     {
       title: '激活状态',

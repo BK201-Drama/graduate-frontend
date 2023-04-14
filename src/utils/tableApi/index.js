@@ -4,7 +4,7 @@ const getTableData = (myApi) => (pages, formData) => {
     size: pages.pageSize,
     ...formData,
   }
-  return myApi(params).then((res) => {
+  return myApi?.(params).then((res) => {
     const {
       data: {
         data: { list, count },

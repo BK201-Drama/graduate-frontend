@@ -12,7 +12,7 @@ const User = () => {
   return (
     <>
       <div>User</div>
-      <Table tableProps={tableProps} columns={columns} />
+      <Table columns={columns} {...tableProps} />
     </>
   )
 }

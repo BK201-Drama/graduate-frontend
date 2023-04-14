@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     quotes: [2, 'single'], // 单引号
     semi: [0],
+    camelcase: 'off',
     'no-magic-numbers': 2,
     'prettier/prettier': 'off',
     'react/jsx-uses-react': 'off',
