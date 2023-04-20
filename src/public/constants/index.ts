@@ -13,4 +13,5 @@ export const NUMBER_ZERO = 0
 export const BACKEND_STATUS = {
   SUCCESS: 200,
   FAIL: 400,
+  NO_AUTH: 401,
 }

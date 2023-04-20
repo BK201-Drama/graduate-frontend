@@ -1,10 +1,16 @@
+import axios from 'axios'
+const axiosInstance = axios.create({
+  baseURL: `${import.meta.env.VITE_BASEURL}/api`,
+  timeout: 30000,
+})
+
 export const tokenJudgeConfig = (instance) => {
   instance?.interceptors.response.use(
     async (config) => {
-      if ([config.status, config.data.code].includes(BACKEND_STATUS.SUCCESS))
+      if (![config?.data?.code].includes(BACKEND_STATUS.NO_AUTH)) {
         return config
-      else {
-        const tokenData = await instance.post('/updateAccessToken', {
+      } else {
+        const tokenData = await axiosInstance.post('/updateAccessToken', {
           refresh_token: localStorage.getItem('refresh_token'),
         })
         if (tokenData.data.code === BACKEND_STATUS.SUCCESS) {
@@ -17,11 +23,13 @@ export const tokenJudgeConfig = (instance) => {
           const result = await instance?.(config.config)
           return result
         } else {
-          message.error('登录验证已过期，请重新登录')
+          localStorage.removeItem('access_token')
+          localStorage.removeItem('refresh_token')
           window.location.pathname = '/login'
+          return config
         }
       }
     },
-    async (error) => new Error(error)
+    (error) => new Error(error)
   )
 }

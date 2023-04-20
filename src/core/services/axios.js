@@ -35,8 +35,8 @@ const request = (url, params = {}, type) => {
       validateStatus: () => true,
     })
       .then((res) => {
-        if ([res.data.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
-        else message.error(res.data?.msg ?? res.data?.message)
+        if ([res?.data?.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
+        else message.error(res?.data?.msg ?? res?.data?.message)
       })
       .catch((err) => {
         message.error('网络错误请求异常，请稍后再试')

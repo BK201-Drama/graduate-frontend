@@ -11,6 +11,7 @@ const User = () => {
   const { permissionStore } = useStores()
   const columns = getColumns()
   useEffect(() => {
+    console.log('???')
     permissionStore.getPermissionList()
   }, [])
   return (
