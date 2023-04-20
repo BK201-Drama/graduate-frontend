@@ -1,6 +1,6 @@
 import { Layout } from 'antd'
 import { Outlet } from 'react-router'
-import FHeader from '../FHeader'
+import FHeader from '../../shared/FHeader'
 import SideBar from '../SideBar'
 
 const { Content, Sider } = Layout

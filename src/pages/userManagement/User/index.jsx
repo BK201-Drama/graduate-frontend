@@ -14,12 +14,7 @@ const User = () => {
     permissionStore.getPermissionList()
   }, [])
 
-  return (
-    <>
-      <div>User</div>
-      <Table columns={columns} {...tableProps} rowKey="_id" />
-    </>
-  )
+  return <Table columns={columns} {...tableProps} rowKey="_id" />
 }
 
 export default User

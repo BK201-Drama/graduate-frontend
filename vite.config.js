@@ -65,8 +65,8 @@ export default defineConfig({
             'patch',
           ],
         },
-        { '@/shared/FHeader': [['default', 'FHeader']] },
-        { '@/shared/LayoutIndex': [['default', 'LayoutIndex']] },
+        { '@/features/FHeader': [['default', 'FHeader']] },
+        { '@/features/LayoutIndex': [['default', 'LayoutIndex']] },
         { '@/shared/Question': [['default', 'Question']] },
         {
           '@/public/constants': [
