@@ -15,3 +15,8 @@ export const BACKEND_STATUS = {
   FAIL: 400,
   NO_AUTH: 401,
 }
+
+export const PERMISSION_TYPE = {
+  url: 1,
+  btn: 2,
+}

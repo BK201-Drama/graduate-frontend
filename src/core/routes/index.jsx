@@ -6,11 +6,11 @@ export const routers = [
     component: () => <LayoutIndex />,
     children: [
       {
-        path: '/user-management/user',
+        path: '/user/list',
         component: lazy(() => import('@/pages/userManagement/User')),
       },
       {
-        path: '/user-management/role',
+        path: '/role/list',
         component: lazy(() => import('@/pages/userManagement/Role')),
       },
     ],
