@@ -1,1 +1,1 @@
-export const getPermission = () => get('/user/permissionList')
+export const getPermission = () => get('/user/permission-list')
