@@ -8,7 +8,7 @@ const User = () => {
   const { tableProps, refresh } = useAntdTable(getTableData(getUserList), {
     form: formInstance,
   })
-  const { permissionStore } = useStores()
+
   const columns = getColumns({
     setActiviation: () => {
       setActivation().then(() => {
@@ -17,9 +17,6 @@ const User = () => {
       })
     },
   })
-  useEffect(() => {
-    permissionStore.getPermissionList()
-  }, [])
 
   return <Table columns={columns} {...tableProps} rowKey="_id" />
 }

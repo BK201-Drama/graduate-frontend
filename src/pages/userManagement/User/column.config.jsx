@@ -1,3 +1,9 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import PermissionWrapper from '@/features/PermissionWrapper'
+
+const iconStyle =
+  'cursor-pointer text-[#fff] text-[18px] w-[30px] h-[30px] flex justify-center items-center rounded-[15px]'
+
 const getColumns = ({ setActiviation, deleted, updated }) => {
   return [
     { title: '名称', dataIndex: 'user_name', key: 'user_name' },
@@ -32,7 +38,19 @@ const getColumns = ({ setActiviation, deleted, updated }) => {
       title: '操作',
       dataIndex: 'account',
       key: 'account',
-      render: () => {},
+      render: (account) => {
+        return (
+          <div className="flex gap-[5px]">
+            <PermissionWrapper token="deleteUser">
+              <DeleteOutlined className={`${iconStyle} bg-[red]`} />
+            </PermissionWrapper>
+
+            <PermissionWrapper token="updateUser">
+              <EditOutlined className={`${iconStyle} bg-[blue]`} />
+            </PermissionWrapper>
+          </div>
+        )
+      },
     },
   ]
 }
