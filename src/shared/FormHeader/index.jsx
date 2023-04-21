@@ -4,7 +4,13 @@
  * submit：用于筛选提交表单的函数
  * formConfig：表单内容JSX数组，里面构成为：{ label: string; name: string; element: ReactNode }
  **/
-const FormHeader = ({ formInstance, reset, submit, formConfig }) => {
+const FormHeader = ({
+  formInstance,
+  reset,
+  submit,
+  formConfig,
+  leftConfig,
+}) => {
   const [iniFormInstance] = Form.useForm()
   const form = formInstance ?? iniFormInstance
   const onReset = () => {
@@ -18,6 +24,7 @@ const FormHeader = ({ formInstance, reset, submit, formConfig }) => {
 
   return (
     <Form form={form} className="pt-[10px] rounded-[8px] flex justify-between">
+      {leftConfig && <div className="w-[100px]">{leftConfig}</div>}
       <Row gutter={24} className="w-full pr-[10px]">
         {formConfig.map((formItem, index) => {
           return (
