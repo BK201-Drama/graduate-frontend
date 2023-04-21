@@ -16,6 +16,7 @@ const User = () => {
         refresh()
       })
     },
+    refresh,
   })
 
   return <Table columns={columns} {...tableProps} rowKey="_id" />

@@ -15,6 +15,7 @@
 3. features 组件的封装，应直接使用 antd 组件和 shared 组件来进行封装，数据采用 domains 的 stores，如果用 features 内部若干组件组合封装，就需要有树形结构
 4. shared 的组件必须全部依赖 props 来传入数据，而且不要依赖 public 的常量
 5. src 下的 utils 不允许依赖 public 的常量数据，只有 public 下的 utils 才能依赖常量数据
+6. 在 page 里面，书写规定不允许小写开头的目录是组件，大写开头才允许是组件
 
 # 提交代码流程
 
@@ -54,3 +55,9 @@ yarn commit
 2. 本项目适配了自动导入部分依赖，因此不需要自己自己引入 antd，包装好的 axios，stores 的内容，以及 react-hooks 的所有内容
 3. 对于 css，建议使用 tailwind 来写，建议下载辅助插件：Tailwind CSS IntelliSense
 4. 关于路径，我们统一使用@/...进行编写，其中，具体可以参考项目内的引入，并且如果想要自动提示，建议下载辅助插件: Path Intellisense
+
+# 关于代码逻辑
+
+1. 用户管理的 RBAC
+
+- 统一全在 permissionStore 进行控制，其中有部分是按钮级别控制，请使用 permissionWrapper 组件统一处理

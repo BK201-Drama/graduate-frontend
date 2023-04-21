@@ -1,10 +1,13 @@
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import { deleteUser } from '@/domains/user/index.repository'
 import PermissionWrapper from '@/features/PermissionWrapper'
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
+import DeleteModal from './components/DeleteModal'
+import UpdateModal from './components/UpdateModal'
 
 const iconStyle =
   'cursor-pointer text-[#fff] text-[18px] w-[30px] h-[30px] flex justify-center items-center rounded-[15px]'
 
-const getColumns = ({ setActiviation, deleted, updated }) => {
+const getColumns = ({ setActiviation, deleted, updated, refresh }) => {
   return [
     { title: '名称', dataIndex: 'user_name', key: 'user_name' },
     { title: '账户', dataIndex: 'account', key: 'account' },
@@ -38,15 +41,39 @@ const getColumns = ({ setActiviation, deleted, updated }) => {
       title: '操作',
       dataIndex: 'account',
       key: 'account',
-      render: (account) => {
+      render: (account, record) => {
         return (
           <div className="flex gap-[5px]">
             <PermissionWrapper token="deleteUser">
-              <DeleteOutlined className={`${iconStyle} bg-[red]`} />
+              <DeleteModal
+                render={(onClick) => (
+                  <DeleteOutlined
+                    className={`${iconStyle} bg-[red]`}
+                    onClick={onClick}
+                  />
+                )}
+                onOk={() => {
+                  deleteUser?.(account)?.then((res) => {
+                    if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
+                      message.success('删除成功')
+                      refresh?.()
+                    }
+                  })
+                }}
+              ></DeleteModal>
             </PermissionWrapper>
 
             <PermissionWrapper token="updateUser">
-              <EditOutlined className={`${iconStyle} bg-[blue]`} />
+              <UpdateModal
+                render={(onClick) => (
+                  <EditOutlined
+                    className={`${iconStyle} bg-[blue]`}
+                    onClick={onClick}
+                  />
+                )}
+                onOk={() => {}}
+                defaultValue={record}
+              />
             </PermissionWrapper>
           </div>
         )
