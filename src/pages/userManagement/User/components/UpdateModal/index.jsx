@@ -1,6 +1,7 @@
 import RoleSelector from '@/features/RoleSelector'
 
 const { Item } = Form
+const RULE = [{ required: true }]
 
 const UpdateModal = ({ render, onOk, defaultValue }) => {
   const [open, setOpen] = useState(false)
@@ -8,7 +9,13 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
   const click = () => {
     setOpen?.(!open)
   }
-  formInstance?.setFieldsValue(defaultValue)
+
+  useEffect(() => {
+    formInstance?.setFieldsValue({
+      ...defaultValue,
+      new_account: defaultValue?.account,
+    })
+  }, [])
 
   return (
     <>
@@ -16,20 +23,29 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
       <Modal
         open={open}
         onOk={() => {
-          onOk?.()
+          formInstance?.validateFields().then((res) => {
+            const params = {
+              ...res,
+              account: defaultValue?.account,
+            }
+            onOk?.(params)
+          })
           click?.()
         }}
         onCancel={click}
         title="更新用户信息"
       >
         <Form form={formInstance}>
-          <Item name="new_account" label="新账户">
+          <Item name="new_account" label="修改手机号" rules={RULE}>
             <Input />
           </Item>
-          <Item name="password" label="新密码">
+          <Item name="user_name" label="修改用户名" rules={RULE}>
             <Input />
           </Item>
-          <Item name="role_id" label="新角色">
+          <Item name="password" label="修改新密码" rules={RULE}>
+            <Input />
+          </Item>
+          <Item name="role_id" label="修改新角色" rules={RULE}>
             <RoleSelector />
           </Item>
         </Form>

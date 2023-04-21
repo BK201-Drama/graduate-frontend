@@ -1,4 +1,4 @@
-import { deleteUser } from '@/domains/user/index.repository'
+import { deleteUser, updateUser } from '@/domains/user/index.repository'
 import PermissionWrapper from '@/features/PermissionWrapper'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
 import DeleteModal from './components/DeleteModal'
@@ -55,7 +55,7 @@ const getColumns = ({ setActiviation, deleted, updated, refresh }) => {
                 onOk={() => {
                   deleteUser?.(account)?.then((res) => {
                     if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
-                      message.success('删除成功')
+                      message.success('删除用户成功')
                       refresh?.()
                     }
                   })
@@ -71,7 +71,14 @@ const getColumns = ({ setActiviation, deleted, updated, refresh }) => {
                     onClick={onClick}
                   />
                 )}
-                onOk={() => {}}
+                onOk={(params) => {
+                  updateUser?.(params).then((res) => {
+                    if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
+                      message.success('修改用户成功')
+                      refresh?.()
+                    }
+                  })
+                }}
                 defaultValue={record}
               />
             </PermissionWrapper>
