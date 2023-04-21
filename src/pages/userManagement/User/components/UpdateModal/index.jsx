@@ -1,3 +1,5 @@
+import RoleSelector from '@/features/RoleSelector'
+
 const { Item } = Form
 
 const UpdateModal = ({ render, onOk, defaultValue }) => {
@@ -7,6 +9,7 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
     setOpen?.(!open)
   }
   formInstance?.setFieldsValue(defaultValue)
+
   return (
     <>
       {render?.(click)}
@@ -26,8 +29,8 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
           <Item name="password" label="新密码">
             <Input />
           </Item>
-          <Item name="role_id" label="新账户">
-            <Input />
+          <Item name="role_id" label="新角色">
+            <RoleSelector />
           </Item>
         </Form>
       </Modal>

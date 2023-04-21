@@ -5,8 +5,9 @@ class RoleStore {
   }
   roleOptions = []
   getRoleOptions = async () => {
+    if (!_.isEmpty(this.roleOptions)) return
     const res = await chooseRole()
-    console.log(res.data.data)
+    this.roleOptions = res?.data?.data ?? []
   }
 }
 

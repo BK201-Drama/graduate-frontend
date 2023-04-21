@@ -1,11 +1,11 @@
-import { chooseRole, login } from '@/domains/login/index.repository'
+import { login } from '@/domains/login/index.repository'
+import RoleSelector from '@/features/RoleSelector'
 import { navHelper } from '@/utils/navHelper'
 
 const RULE = [{ required: true }]
 const { Item, useForm } = Form
 const Login = () => {
   const [formInstance] = useForm()
-  const { data } = useRequest(chooseRole)
   const navInstance = navHelper()
   const submit = () => {
     formInstance.validateFields().then((params) => {
@@ -20,14 +20,6 @@ const Login = () => {
     })
   }
 
-  // 设置默认值
-  useUpdateEffect(() => {
-    formInstance?.setFieldValue(
-      'role_id',
-      data?.data?.data?.[NUMBER_ZERO]?.value
-    )
-  }, [data?.data?.data])
-
   return (
     <div className="h-[100vh] bg-gradient-to-r from-blue-400 to-green-500 flex justify-center items-center">
       <div className="bg-[#fff] w-[400px] h-[400px] rounded-[8px] backdrop-filter-hover flex justify-center items-center flex-col gap-[20px]">
@@ -40,7 +32,7 @@ const Login = () => {
             <Input />
           </Item>
           <Item label="请选择登录角色" name="role_id">
-            <Select options={data?.data?.data ?? []} />
+            <RoleSelector />
           </Item>
           <Button onClick={submit}>登录</Button>
         </Form>
