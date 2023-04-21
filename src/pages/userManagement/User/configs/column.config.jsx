@@ -1,13 +1,17 @@
-import { deleteUser, updateUser } from '@/domains/user/index.repository'
+import {
+  deleteUser,
+  updateUser,
+  setActivation,
+} from '@/domains/user/index.repository'
 import PermissionWrapper from '@/features/PermissionWrapper'
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons'
-import DeleteModal from './components/DeleteModal'
-import UpdateModal from './components/UpdateModal'
+import DeleteModal from '../components/DeleteModal'
+import UpdateModal from '../components/UpdateModal'
 
 const iconStyle =
   'cursor-pointer text-[#fff] text-[18px] w-[30px] h-[30px] flex justify-center items-center rounded-[15px]'
 
-const getColumns = ({ setActiviation, deleted, updated, refresh }) => {
+const getColumns = ({ refresh }) => {
   return [
     { title: '名称', dataIndex: 'user_name', key: 'user_name' },
     { title: '账户', dataIndex: 'account', key: 'account' },
@@ -31,7 +35,10 @@ const getColumns = ({ setActiviation, deleted, updated, refresh }) => {
             unCheckedChildren="未激活"
             defaultChecked={Number(activation_status)}
             onChange={(e) => {
-              setActiviation?.(e)
+              setActivation().then(() => {
+                message.success('激活成功')
+                refresh()
+              })
             }}
           />
         )

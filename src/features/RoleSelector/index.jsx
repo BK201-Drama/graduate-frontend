@@ -1,10 +1,13 @@
-import React from 'react'
-
 const RoleSelector = ({ value, onChange }) => {
   const { roleStore } = useStores()
   roleStore.getRoleOptions()
   return (
-    <Select options={roleStore.roleOptions} value={value} onChange={onChange} />
+    <Select
+      options={roleStore.roleOptions}
+      value={value}
+      onChange={onChange}
+      placeholder="请选择角色"
+    />
   )
 }
 

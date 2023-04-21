@@ -17,11 +17,11 @@ const FormHeader = ({ formInstance, reset, submit, formConfig }) => {
   }
 
   return (
-    <Form form={form} className="pt-[10px]">
-      <Row gutter={24}>
+    <Form form={form} className="pt-[10px] rounded-[8px] flex justify-between">
+      <Row gutter={24} className="w-full pr-[10px]">
         {formConfig.map((formItem, index) => {
           return (
-            <Col span={8} key={index}>
+            <Col span={6} key={index}>
               <Form.Item label={formItem?.label} name={formItem.name}>
                 {formItem.element}
               </Form.Item>
@@ -29,20 +29,16 @@ const FormHeader = ({ formInstance, reset, submit, formConfig }) => {
           )
         })}
       </Row>
-      <Row
-        gutter={24}
-        justify="end"
-        style={{ marginBottom: 24, paddingRight: 10 }}
-      >
+      <div className="w-[170px]">
         <Button type="primary" onClick={onSubmit}>
           搜索
         </Button>
         {reset && (
-          <Button style={{ marginLeft: 16 }} onClick={onReset}>
+          <Button className="ml-[10px]" onClick={onReset}>
             重置
           </Button>
         )}
-      </Row>
+      </div>
     </Form>
   )
 }
