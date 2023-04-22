@@ -1,4 +1,4 @@
-import { getPermission } from '../repository/index.repository'
+import { getPermission, getAllPermission } from '../repository/index.repository'
 import { PERMISSION_TYPE } from '@/public/constants'
 import { permissionTree } from './utils'
 import { fromPermissionToRouteMapper } from './mapper'
@@ -13,6 +13,8 @@ class PermissionStore {
   urlPermission = []
   btnPermission = []
 
+  allPermission = []
+
   getPermissionList = async () => {
     const res = await getPermission()
     this.permissionList = (res?.data?.data ?? []).map(
@@ -23,6 +25,13 @@ class PermissionStore {
     )
     this.urlPermission = this.permissionList.filter(
       (permission) => permission.type === PERMISSION_TYPE.url
+    )
+  }
+
+  getAllPermission = async () => {
+    const res = await getAllPermission()
+    this.allPermission = (res?.data?.data ?? []).map(
+      fromPermissionToRouteMapper
     )
   }
 

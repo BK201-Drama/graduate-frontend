@@ -1,6 +1,8 @@
 const RoleSelector = ({ value, onChange }) => {
   const { roleStore } = useStores()
-  roleStore.getRoleOptions()
+  useEffect(() => {
+    roleStore.getRoleOptions()
+  }, [])
   return (
     <Select
       options={roleStore.roleOptions}

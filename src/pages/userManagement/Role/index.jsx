@@ -24,7 +24,7 @@ const Role = () => {
         submit={submit}
         reset={reset}
         leftConfig={
-          <Tooltip title="添加用户" trigger="hover" placement="right">
+          <Tooltip title="添加角色" trigger="hover" placement="right">
             <AddModal
               render={(onClick) => (
                 <Button
