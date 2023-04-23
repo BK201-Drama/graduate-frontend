@@ -9,3 +9,14 @@ export const fromPermissionToRouteMapper = (urlPermission) => {
     type,
   }
 }
+
+export const fromPermissionToTreeMapper = (permission) => {
+  const { permission_name, _id, permission_pid, type } = permission
+  return {
+    title: permission_name,
+    key: _id,
+    _id,
+    permission_pid,
+    type,
+  }
+}

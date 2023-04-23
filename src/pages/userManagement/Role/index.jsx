@@ -1,4 +1,7 @@
-import { getRoleList } from '@/domains/role/repository/index.repository'
+import {
+  createRole,
+  getRoleList,
+} from '@/domains/role/repository/index.repository'
 import FormHeader from '@/shared/FormHeader'
 import getTableData from '@/utils/tableApi'
 import { PlusOutlined } from '@ant-design/icons'
@@ -34,6 +37,14 @@ const Role = () => {
                   onClick={onClick}
                 />
               )}
+              onOk={(params) => {
+                createRole(params).then((res) => {
+                  if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
+                    message.success('创建成功')
+                    refresh?.()
+                  }
+                })
+              }}
             />
           </Tooltip>
         }

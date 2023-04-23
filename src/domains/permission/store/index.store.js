@@ -1,7 +1,10 @@
 import { getPermission, getAllPermission } from '../repository/index.repository'
 import { PERMISSION_TYPE } from '@/public/constants'
 import { permissionTree } from './utils'
-import { fromPermissionToRouteMapper } from './mapper'
+import {
+  fromPermissionToRouteMapper,
+  fromPermissionToTreeMapper,
+} from './mapper'
 
 class PermissionStore {
   constructor() {
@@ -29,14 +32,19 @@ class PermissionStore {
   }
 
   getAllPermission = async () => {
+    if (!_.isEmpty(this.allPermission)) return
     const res = await getAllPermission()
-    this.allPermission = (res?.data?.data ?? []).map(
-      fromPermissionToRouteMapper
-    )
+    this.allPermission = (res?.data?.data ?? []).map(fromPermissionToTreeMapper)
   }
 
+  // 用于加载sideBar
   get permissionTree() {
     return permissionTree(this.urlPermission)
+  }
+
+  // 所有权限包括操作权限拼成一棵树，用于添加角色时的那颗权限树的加载
+  get allPermissionTree() {
+    return permissionTree(this.allPermission)
   }
 }
 

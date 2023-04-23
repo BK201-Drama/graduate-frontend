@@ -15,8 +15,8 @@ const getColumns = () => {
       render: (permissions) => {
         return _.isEmpty(permissions)
           ? '无'
-          : permissions.map((permission, index) => (
-              <Tag key={index}>{permission.permission_name}</Tag>
+          : permissions.map((permission) => (
+              <Tag key={permission._id}>{permission.permission_name}</Tag>
             ))
       },
     },

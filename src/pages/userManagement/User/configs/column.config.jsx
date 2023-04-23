@@ -28,14 +28,14 @@ const getColumns = ({ refresh }) => {
       title: '激活状态',
       dataIndex: 'activation_status',
       key: 'activation_status',
-      render: (activation_status) => {
+      render: (activation_status, { account }) => {
         return (
           <Switch
             checkedChildren="激活"
             unCheckedChildren="未激活"
             defaultChecked={Number(activation_status)}
-            onChange={(e) => {
-              setActivation().then(() => {
+            onChange={() => {
+              setActivation(account).then(() => {
                 message.success('激活成功')
                 refresh()
               })

@@ -1,15 +1,13 @@
 const PermissionSelector = ({ value, onChange }) => {
   const { permissionStore } = useStores()
-  useEffect(() => {
-    permissionStore.getAllPermission()
-  }, [])
+  permissionStore.getAllPermission()
   return (
     <Select
       value={value}
       onChange={onChange}
-      options={permissionStore.allPermission.map(({ _id, label }) => ({
+      options={permissionStore.allPermission.map(({ _id, title }) => ({
         value: _id,
-        label,
+        label: title,
       }))}
       mode="multiple"
       allowClear={true}
