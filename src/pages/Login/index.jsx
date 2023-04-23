@@ -1,6 +1,6 @@
 import { login } from '@/domains/login/index.repository'
 import RoleSelector from '@/features/RoleSelector'
-import { navHelper } from '@/utils/navHelper'
+import { navHelper } from '@/core/routes/navHelper'
 
 const RULE = [{ required: true }]
 const { Item, useForm } = Form

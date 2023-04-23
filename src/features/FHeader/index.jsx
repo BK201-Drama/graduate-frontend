@@ -1,5 +1,5 @@
 const { Header } = Layout
-import { navHelper } from '@/utils/navHelper'
+import { navHelper } from '@/core/routes/navHelper'
 
 const FHeader = () => {
   const navInstance = navHelper()

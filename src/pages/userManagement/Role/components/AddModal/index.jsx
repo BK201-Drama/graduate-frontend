@@ -35,7 +35,9 @@ const AddModal = ({ render, onOk }) => {
         </Form>
         <Item label="角色权限">
           <PermissionTreeSelector
-            onCheck={(permission_ids) => setPermissions(permission_ids)}
+            onCheck={(selectedKeys, halfCheckedKeys) =>
+              setPermissions([...selectedKeys, ...halfCheckedKeys])
+            }
           />
         </Item>
       </Modal>

@@ -19,6 +19,7 @@ class PermissionStore {
   allPermission = []
 
   getPermissionList = async () => {
+    if (!_.isEmpty(this.permissionList)) return
     const res = await getPermission()
     this.permissionList = (res?.data?.data ?? []).map(
       fromPermissionToRouteMapper
@@ -45,6 +46,10 @@ class PermissionStore {
   // 所有权限包括操作权限拼成一棵树，用于添加角色时的那颗权限树的加载
   get allPermissionTree() {
     return permissionTree(this.allPermission)
+  }
+
+  get urlPermissionRoutes() {
+    return this.urlPermission.map((item) => item.key)
   }
 }
 

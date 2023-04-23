@@ -4,5 +4,6 @@ export const navHelper = () => {
     toLogin: () => navigate('/login'),
     toUserList: () => navigate('/user/list'),
     toRoleList: () => navigate('/role/list'),
+    toPage403: () => navigate('/auth/403'),
   }
 }

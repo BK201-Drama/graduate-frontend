@@ -9,10 +9,12 @@ const instance = originAxios.create({
   timeout: 30000,
 })
 
+// 加载请求拦截器
 Object.values(requestInterceptors).forEach((fn) => {
   fn?.(instance)
 })
 
+// 加载响应拦截器
 Object.values(responseInterceptors).forEach((fn) => {
   fn?.(instance)
 })
@@ -36,7 +38,10 @@ const request = (url, params = {}, type) => {
     })
       .then((res) => {
         if ([res?.data?.code].includes(BACKEND_STATUS.SUCCESS)) resolve(res)
-        else message.error(res?.data?.msg ?? res?.data?.message)
+        else
+          message.error(
+            res?.data?.msg ?? res?.data?.message ?? '系统错误，请联系管理员'
+          )
       })
       .catch((err) => {
         message.error('网络错误请求异常，请稍后再试')

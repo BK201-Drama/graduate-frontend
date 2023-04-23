@@ -43,7 +43,9 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
           <Item label="角色权限" rules={RULE}>
             <PermissionTreeSelector
               defaultCheckedKeys={defaultValue.permission_ids}
-              onCheck={(permission_ids) => setPermissions(permission_ids)}
+              onCheck={(selectedKeys, halfCheckedKeys) =>
+                setPermissions([...selectedKeys, ...halfCheckedKeys])
+              }
             />
           </Item>
         </Form>
