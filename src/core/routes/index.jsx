@@ -7,6 +7,10 @@ export const routers = [
     component: () => <LayoutIndex />,
     children: [
       {
+        path: '/',
+        component: lazy(() => import('@/pages/userManagement/User')),
+      },
+      {
         path: '/user/list',
         component: lazy(() => import('@/pages/userManagement/User')),
       },
@@ -29,6 +33,7 @@ export const routers = [
   {
     path: '/login',
     component: () => <Login />,
+    forceAuth: true,
   },
   {
     path: '',
@@ -37,6 +42,7 @@ export const routers = [
       {
         path: '*',
         component: lazy(() => import('@/pages/403')),
+        forceAuth: true,
       },
     ],
   },
@@ -55,8 +61,9 @@ export const changeRouter = (routers) => {
       route.element = (
         <Suspense>
           <AuthUrl
-            url={route.path}
-            // forceAuth={!import.meta.env.VITE_NEED_ROUTE_CHECK}
+            forceAuth={
+              !import.meta.env.VITE_NEED_ROUTE_CHECK || route.forceAuth
+            }
           >
             <route.component />
           </AuthUrl>

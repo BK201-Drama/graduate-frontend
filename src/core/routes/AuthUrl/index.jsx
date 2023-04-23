@@ -1,11 +1,21 @@
+import { navHelper } from '../navHelper'
+
 // TODO: 这个组件应该由npm包引入更加合理
-const AuthUrl = ({ forceAuth = false, children, url }) => {
+const AuthUrl = ({ forceAuth = false, children }) => {
+  const location = useLocation()
+  const navInstance = navHelper()
   const { permissionStore } = useStores()
   permissionStore.getPermissionList()
-  console.log(permissionStore.urlPermissionRoutes, url)
-  if (permissionStore.urlPermissionRoutes.includes(url) || forceAuth)
+  if (location.pathname === '/') {
+    navInstance.toUserList()
+  }
+
+  if (
+    permissionStore.urlPermissionRoutes.includes(location.pathname) ||
+    forceAuth
+  )
     return children
-  else return children // <Redirect to="/auth/403" />
+  else return null
 }
 
 export default observer(AuthUrl)
