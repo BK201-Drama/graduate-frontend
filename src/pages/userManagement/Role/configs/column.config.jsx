@@ -1,7 +1,8 @@
 import { EditOutlined } from '@ant-design/icons'
 import UpdateModal from '../components/UpdateModal'
+import { updateRole } from '@/domains/role/repository/index.repository'
 
-const getColumns = () => {
+const getColumns = ({ refresh }) => {
   return [
     {
       title: '名称',
@@ -24,9 +25,10 @@ const getColumns = () => {
       title: '操作',
       dataIndex: '_id',
       key: '_id',
-      render: () => {
+      render: (_id, render) => {
         return (
           <UpdateModal
+            defaultValue={render}
             render={(onClick) => (
               <Button
                 shape="circle"
@@ -35,6 +37,14 @@ const getColumns = () => {
                 onClick={onClick}
               />
             )}
+            onOk={(params) => {
+              updateRole({ ...params, role_id: _id }).then((res) => {
+                if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
+                  message.success('修改角色成功')
+                  refresh?.()
+                }
+              })
+            }}
           />
         )
       },

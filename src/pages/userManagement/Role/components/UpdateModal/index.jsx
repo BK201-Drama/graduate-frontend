@@ -1,8 +1,11 @@
+import PermissionTreeSelector from '@/features/PermissionTreeSelector'
+
 const { Item } = Form
 const RULE = [{ required: true }]
 
 const UpdateModal = ({ render, onOk, defaultValue }) => {
   const [open, setOpen] = useState(false)
+  const [permissions, setPermissions] = useState([])
   const [formInstance] = Form.useForm()
   const click = () => {
     setOpen?.(!open)
@@ -24,7 +27,7 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
           formInstance?.validateFields().then((res) => {
             const params = {
               ...res,
-              account: defaultValue?.account,
+              permission_ids: permissions,
             }
             onOk?.(params)
           })
@@ -37,8 +40,11 @@ const UpdateModal = ({ render, onOk, defaultValue }) => {
           <Item name="role_name" label="角色名" rules={RULE}>
             <Input />
           </Item>
-          <Item name="permission_ids" label="角色权限" rules={RULE}>
-            <Input />
+          <Item label="角色权限" rules={RULE}>
+            <PermissionTreeSelector
+              defaultCheckedKeys={defaultValue.permission_ids}
+              onCheck={(permission_ids) => setPermissions(permission_ids)}
+            />
           </Item>
         </Form>
       </Modal>
