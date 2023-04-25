@@ -1,4 +1,4 @@
-import { login } from '@/domains/login/index.repository'
+import { login } from '@/domains/login'
 import RoleSelector from '@/features/RoleSelector'
 import { navHelper } from '@/core/routes/navHelper'
 

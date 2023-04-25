@@ -1,11 +1,11 @@
-import { getUserList } from '@/domains/user/index.repository'
+import { getUserList } from '@/domains/user'
 import FormHeader from '@/shared/FormHeader'
 import getTableData from '@/utils/tableApi'
 import { PlusOutlined } from '@ant-design/icons'
 import AddModal from './components/AddModal'
 import getColumns from './configs/column.config'
 import { formConfig } from './configs/form.config'
-import { createUser } from '@/domains/user/index.repository'
+import { createUser } from '@/domains/user'
 
 const User = () => {
   const [formInstance] = Form.useForm()

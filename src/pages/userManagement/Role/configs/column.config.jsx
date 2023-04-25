@@ -1,6 +1,6 @@
 import { EditOutlined } from '@ant-design/icons'
 import UpdateModal from '../components/UpdateModal'
-import { updateRole } from '@/domains/role/repository/index.repository'
+import { updateRole } from '@/domains/role/repository'
 
 const getColumns = ({ refresh }) => {
   return [

@@ -1,4 +1,4 @@
-import { chooseRole } from '../repository/index.repository'
+import { chooseRole } from '../repository'
 class RoleStore {
   constructor() {
     makeAutoObservable(this)

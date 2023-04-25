@@ -1,4 +1,4 @@
-import { getPermission, getAllPermission } from '../repository/index.repository'
+import { getPermission, getAllPermission } from '../repository'
 import { PERMISSION_TYPE } from '@/public/constants'
 import { permissionTree } from './utils'
 import {

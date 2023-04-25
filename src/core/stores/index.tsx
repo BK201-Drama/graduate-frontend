@@ -1,9 +1,6 @@
 import { createContext, useContext } from 'react'
-import {
-  permissionStore,
-  permissionKey,
-} from '@/domains/permission/store/index.store'
-import { roleStore, roleStoreKey } from '@/domains/role/stores/index.store'
+import { permissionStore, permissionKey } from '@/domains/permission/store'
+import { roleStore, roleStoreKey } from '@/domains/role/store'
 function createStores() {
   return {
     [permissionKey]: permissionStore,
