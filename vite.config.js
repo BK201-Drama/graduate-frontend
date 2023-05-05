@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
+import fs from 'fs'
+import path, { resolve } from 'path'
 import autoImport from 'unplugin-auto-import/vite'
 import { defineConfig } from 'vite'
 
@@ -129,5 +130,11 @@ export default defineConfig({
         replacement: '',
       },
     ],
+  },
+  server: {
+    https: {
+      cert: fs.readFileSync(path.join(__dirname, 'security/httpsSSL/cert.crt')),
+      key: fs.readFileSync(path.join(__dirname, 'security/httpsSSL/cert.key')),
+    },
   },
 })
