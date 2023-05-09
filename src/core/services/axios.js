@@ -5,7 +5,7 @@ import * as responseInterceptors from '@/core/services/interceptors/response'
 
 // 创建请求实例
 const instance = originAxios.create({
-  baseURL: `${import.meta.env.VITE_BASEURL}/user_manage/api`,
+  baseURL: `${import.meta.env.VITE_BASEURL}/api`,
   timeout: 30000,
 })
 

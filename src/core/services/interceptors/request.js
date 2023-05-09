@@ -11,3 +11,7 @@ export const authHeaderConfig = (instance) => {
     (err) => Promise.reject(err)
   )
 }
+
+export const croptyGram = (instance) => {
+  // instance.config.
+}
