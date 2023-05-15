@@ -31,7 +31,14 @@ export const encryptByRsa = (cipherContent, publicKey) => {
   const newValue =
     typeof cipherContent === 'string' ? cipherContent : cipherContent.toString()
   JSEncryptInstance.setPublicKey(publicKey)
-  return JSEncryptInstance.encryptLong(newValue) // 注意：加密类型为string
+  return JSEncryptInstance.encrypt(newValue) // 注意：加密类型为string
+}
+
+export const decryptLongByRSA = (key, cipherContent) => {
+  const newValue =
+    typeof cipherContent === 'string' ? cipherContent : cipherContent.toString()
+  JSEncryptInstance.setPrivateKey(key)
+  return JSEncryptInstance.decrypt(newValue) // 注意：加密类型为string
 }
 
 export const initAESKey = () => {
@@ -41,5 +48,11 @@ export const initAESKey = () => {
   return aesKey
 }
 
-const Crypto = { encryptByAES, decryptByAES, encryptByRsa, initAESKey }
+const Crypto = {
+  encryptByAES,
+  decryptByAES,
+  encryptByRsa,
+  initAESKey,
+  decryptLongByRSA,
+}
 export default Crypto
