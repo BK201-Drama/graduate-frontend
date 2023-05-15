@@ -38,6 +38,7 @@
     "crypto-js": "^4.1.1",
     "eslint": "^8.36.0",
     "fs": "^0.0.1-security",
+    "jsencrypt": "^3.3.2",
     "less": "^4.1.3",
     "lodash": "^4.17.21",
     "mkcert": "^1.5.1",

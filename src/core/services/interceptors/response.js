@@ -1,4 +1,7 @@
 import axios from 'axios'
+import Crypto from '@/utils/crypto'
+import keyStore from '../tokenStore'
+
 const axiosInstance = axios.create({
   baseURL: `${import.meta.env.VITE_BASEURL}/api`,
   timeout: 30000,
@@ -32,4 +35,15 @@ export const tokenJudgeConfig = (instance) => {
     },
     (error) => new Error(error)
   )
+}
+
+export const croptyGram = (instance) => {
+  const a = 'fuckU'
+  const key = keyStore.shift()
+
+  // console.log('keyStore.unshift()', key)
+  const encrypt = Crypto.encryptByAES(a, key)
+  const decrypt = Crypto.decryptByAES(encrypt, key)
+  console.log(encrypt, 'de', decrypt)
+  // instance.config
 }
