@@ -27,14 +27,14 @@ export const decryptByAES = (plainContent, key) => {
   return decString
 }
 
-export const encryptByRsa = (cipherContent, publicKey) => {
+export const encryptByRSA = (cipherContent, publicKey) => {
   const newValue =
     typeof cipherContent === 'string' ? cipherContent : cipherContent.toString()
   JSEncryptInstance.setPublicKey(publicKey)
   return JSEncryptInstance.encrypt(newValue) // 注意：加密类型为string
 }
 
-export const decryptLongByRSA = (key, cipherContent) => {
+export const decryptByRSA = (key, cipherContent) => {
   const newValue =
     typeof cipherContent === 'string' ? cipherContent : cipherContent.toString()
   JSEncryptInstance.setPrivateKey(key)
@@ -42,7 +42,7 @@ export const decryptLongByRSA = (key, cipherContent) => {
 }
 
 export const initAESKey = () => {
-  const keySize = 16
+  const keySize = 8
   const randomKey = CryptoJS.lib.WordArray.random(keySize)
   const aesKey = CryptoJS.enc.Hex.stringify(randomKey)
   return aesKey
@@ -51,8 +51,8 @@ export const initAESKey = () => {
 const Crypto = {
   encryptByAES,
   decryptByAES,
-  encryptByRsa,
+  encryptByRSA,
   initAESKey,
-  decryptLongByRSA,
+  decryptByRSA,
 }
 export default Crypto

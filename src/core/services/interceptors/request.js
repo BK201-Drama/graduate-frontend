@@ -15,13 +15,27 @@ export const authHeaderConfig = (instance) => {
   )
 }
 
-export const croptyGram = (instance) => {
-  const a = 'fuckU'
-  const AESKey = Crypto.initAESKey()
-  keyStore.push(AESKey)
-  // const key = '1234123412ABCDEF'
-  const encrypt = Crypto.encryptByAES(a, AESKey)
-  const decrypt = Crypto.decryptByAES(encrypt, AESKey)
-  console.log(encrypt, 'de', decrypt)
-  // instance.config.
+export const cryptoGram = (instance) => {
+  instance.interceptors.request.use(
+    (config) => {
+      const AESKey = Crypto.initAESKey()
+      keyStore.push(AESKey)
+      const AESCryptoKey = Crypto.encryptByRSA(
+        AESKey,
+        import.meta.env.VITE_RSA_PUBLIC_KEY
+      )
+      if (!_.isNil(config.data))
+        config.data = JSON.stringify({
+          data: Crypto.encryptByAES(config.data, AESKey),
+          AESCryptoKey,
+        })
+      if (!_.isNil(config.params))
+        config.params = {
+          params: Crypto.encryptByAES(JSON.stringify(config.params), AESKey),
+          AESCryptoKey,
+        }
+      return config
+    },
+    (err) => Promise.reject(err)
+  )
 }
