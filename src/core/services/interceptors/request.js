@@ -8,6 +8,9 @@ export const authHeaderConfig = (instance) => {
         ...config?.headers,
         Authorization: localStorage.getItem('access_token') ?? '',
         'Content-Type': 'application/json;charset=UTF-8',
+        'Cache-Control': 'no-store',
+        'Content-Security-Policy': "default-src 'self'",
+        'Access-Control-Allow-Origin': 'https://127.0.0.1:5173',
       }
       return config
     },

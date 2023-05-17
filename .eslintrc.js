@@ -21,7 +21,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    quotes: [2, 'single'], // 单引号
+    quotes: 'off', // 单引号
     semi: [0],
     camelcase: 'off',
     'no-magic-numbers': 2,
