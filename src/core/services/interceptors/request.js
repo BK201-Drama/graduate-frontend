@@ -25,10 +25,10 @@ export const cryptoGram = (instance) => {
         import.meta.env.VITE_RSA_PUBLIC_KEY
       )
       if (!_.isNil(config.data))
-        config.data = JSON.stringify({
-          data: Crypto.encryptByAES(config.data, AESKey),
+        config.data = {
+          data: Crypto.encryptByAES(JSON.stringify(config.data), AESKey),
           AESCryptoKey,
-        })
+        }
       if (!_.isNil(config.params))
         config.params = {
           params: Crypto.encryptByAES(JSON.stringify(config.params), AESKey),
