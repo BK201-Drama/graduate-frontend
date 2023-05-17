@@ -3,10 +3,6 @@ import { navHelper } from '@/core/routes/navHelper'
 
 const FHeader = () => {
   const navInstance = navHelper()
-  const { permissionStore } = useStores()
-  useEffect(() => {
-    permissionStore.getPermissionList()
-  }, [])
 
   const logout = () => {
     localStorage.removeItem('access_token')

@@ -58,17 +58,22 @@ export const changeRouter = (routers) => {
         </Suspense>
       )
     } else {
-      route.element = (
-        <Suspense>
-          <AuthUrl
-            forceAuth={
-              !import.meta.env.VITE_NEED_ROUTE_CHECK || route.forceAuth
-            }
-          >
+      route.element =
+        route.path === '/login' ? (
+          <Suspense>
             <route.component />
-          </AuthUrl>
-        </Suspense>
-      )
+          </Suspense>
+        ) : (
+          <Suspense>
+            <AuthUrl
+              forceAuth={
+                !import.meta.env.VITE_NEED_ROUTE_CHECK || route.forceAuth
+              }
+            >
+              <route.component />
+            </AuthUrl>
+          </Suspense>
+        )
     }
     return route
   })
