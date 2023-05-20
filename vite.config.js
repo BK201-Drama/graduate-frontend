@@ -66,6 +66,15 @@ export default defineConfig({
             'patch',
           ],
         },
+        {
+          '@/core/services/interviewAxios.js': [
+            'interGet',
+            'interPost',
+            'interPatch',
+            'interDeleted',
+            'interPut',
+          ],
+        },
         { '@/features/FHeader': [['default', 'FHeader']] },
         { '@/features/LayoutIndex': [['default', 'LayoutIndex']] },
         { '@/shared/Question': [['default', 'Question']] },

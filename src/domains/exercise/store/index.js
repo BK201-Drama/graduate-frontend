@@ -8,12 +8,12 @@ class ExerciseStore {
 
   getAllLevels = async () => {
     const { data } = await levelList()
-    this.allTypes = data
+    this.allLevels = data?.data ?? []
   }
 
   getAllTypes = async () => {
     const { data } = await typeList()
-    this.allLevels = data
+    this.allTypes = data?.data ?? []
   }
 }
 

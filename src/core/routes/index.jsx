@@ -25,6 +25,17 @@ export const routers = [
     component: () => <LayoutIndex />,
     children: [
       {
+        path: '/interview/exercise-management',
+        component: lazy(() => import('@/pages/aboutInterview/Exercise')),
+        forceAuth: true,
+      },
+    ],
+  },
+  {
+    path: '',
+    component: () => <LayoutIndex />,
+    children: [
+      {
         path: '/examine/commentary',
         component: lazy(() => import('@/pages/examine/Commentary')),
       },
