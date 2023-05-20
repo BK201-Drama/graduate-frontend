@@ -1,4 +1,5 @@
 import {
+  create,
   masterReversingList,
   studentReversingList,
 } from '@/domains/reversing/repository'
@@ -61,13 +62,12 @@ const Reversing = () => {
                   />
                 )}
                 onOk={(params) => {
-                  console.log(params)
-                  // create(params).then((res) => {
-                  //   if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
-                  //     message.success('添加成功')
-                  //     refresh?.()
-                  //   }
-                  // })
+                  create(params).then((res) => {
+                    if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
+                      message.success('添加成功')
+                      refresh?.()
+                    }
+                  })
                 }}
               />
             </Tooltip>
