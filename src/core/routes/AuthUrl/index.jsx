@@ -5,7 +5,7 @@ const AuthUrl = ({ forceAuth = false, children }) => {
   const location = useLocation()
   const navInstance = navHelper()
   const { permissionStore } = useStores()
-  permissionStore.getPermissionList()
+  permissionStore.isGettenList || permissionStore.getPermissionList()
   if (location.pathname === '/') {
     navInstance.toUserList()
   }
@@ -18,4 +18,4 @@ const AuthUrl = ({ forceAuth = false, children }) => {
   else return null
 }
 
-export default AuthUrl
+export default observer(AuthUrl)

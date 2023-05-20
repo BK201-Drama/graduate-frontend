@@ -18,8 +18,10 @@ class PermissionStore {
 
   allPermission = []
 
+  isGettenList = false
+
   getPermissionList = async () => {
-    if (!_.isEmpty(this.permissionList)) return
+    if (this.isGettenList) return
     const res = await getPermission()
     this.permissionList = (res?.data?.data ?? []).map(
       fromPermissionToRouteMapper
@@ -30,6 +32,7 @@ class PermissionStore {
     this.urlPermission = this.permissionList.filter(
       (permission) => permission.type === PERMISSION_TYPE.url
     )
+    this.isGettenList = true
   }
 
   getAllPermission = async () => {
