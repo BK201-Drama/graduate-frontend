@@ -1,5 +1,5 @@
 import {
-  create,
+  masterCreateReverse,
   masterReversingList,
   studentReversingList,
 } from '@/domains/reversing/repository'
@@ -36,14 +36,11 @@ const Reversing = () => {
       <FormHeader
         formConfig={formConfig}
         formInstance={formInstance}
-        submit={() =>
-          submit({
-            ...formInstance.getFieldsValue(),
-            ...(loginData.role_id === ROLE_TYPE.MASTER
-              ? { reserve_account: loginData.account }
-              : {}),
-          })
-        }
+        submit={(field) => {
+          if (field.reserve_date === NUMBER_ZERO)
+            delete formInstance.setFieldValue({ reserve_date: undefined })
+          submit?.()
+        }}
         reset={reset}
         leftConfig={
           loginData.role_id === ROLE_TYPE.MASTER ? (
@@ -62,7 +59,7 @@ const Reversing = () => {
                   />
                 )}
                 onOk={(params) => {
-                  create(params).then((res) => {
+                  masterCreateReverse(params).then((res) => {
                     if (res?.data?.code === BACKEND_STATUS.SUCCESS) {
                       message.success('添加成功')
                       refresh?.()
