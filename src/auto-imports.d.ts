@@ -28,6 +28,7 @@ declare global {
   const Popconfirm: typeof import('antd')['Popconfirm']
   const Popover: typeof import('antd')['Popover']
   const Question: typeof import('@/shared/Question')['default']
+  const ROLE_TYPE: typeof import('@/public/constants')['ROLE_TYPE']
   const Radio: typeof import('antd')['Radio']
   const Route: typeof import('react-router-dom')['Route']
   const Routes: typeof import('react-router-dom')['Routes']

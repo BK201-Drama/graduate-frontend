@@ -20,3 +20,9 @@ export const PERMISSION_TYPE = {
   url: 1,
   btn: 2,
 }
+
+export const ROLE_TYPE = {
+  STUDENT: '64354e54353e35977ea1cb36',
+  MASTER: '64354e54353e35977ea1cb37',
+  ADMIN: '64354e54353e35977ea1cb38',
+}

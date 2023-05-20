@@ -84,6 +84,7 @@ export default defineConfig({
             'NO_FOUND_INDEX',
             'NUMBER_ZERO',
             'BACKEND_STATUS',
+            'ROLE_TYPE',
           ],
         },
       ],

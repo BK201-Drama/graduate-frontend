@@ -24,6 +24,7 @@
     "Popconfirm": true,
     "Popover": true,
     "Question": true,
+    "ROLE_TYPE": true,
     "Radio": true,
     "Route": true,
     "Routes": true,

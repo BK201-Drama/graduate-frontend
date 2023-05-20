@@ -18,4 +18,4 @@ const AuthUrl = ({ forceAuth = false, children }) => {
   else return null
 }
 
-export default observer(AuthUrl)
+export default AuthUrl

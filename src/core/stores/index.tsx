@@ -1,12 +1,15 @@
-import { createContext, useContext } from 'react'
-import { permissionStore, permissionKey } from '@/domains/permission/store'
+import { exerciseKey, exerciseStore } from '@/domains/exercise/store'
+import { permissionKey, permissionStore } from '@/domains/permission/store'
+import { reversingKey, reversingStore } from '@/domains/reversing/store'
 import { roleStore, roleStoreKey } from '@/domains/role/store'
-import { exerciseStore, exerciseKey } from '@/domains/exercise/store'
+import { createContext, useContext } from 'react'
+
 function createStores() {
   return {
     [permissionKey]: permissionStore,
     [roleStoreKey]: roleStore,
     [exerciseKey]: exerciseStore,
+    [reversingKey]: reversingStore,
   }
 }
 

@@ -7,7 +7,7 @@ import AddModal from './components/AddModal'
 import getColumns from './configs/column.config'
 import { formConfig } from './configs/form.config'
 
-// 面试题库管理
+// 面试题库管理(专家端才有)
 const Exercise = () => {
   const [formInstance] = Form.useForm()
   const { exerciseStore } = useStores()
