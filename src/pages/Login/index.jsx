@@ -1,6 +1,7 @@
 import { login } from '@/domains/login'
 import RoleSelector from '@/features/RoleSelector'
 import { navHelper } from '@/core/routes/navHelper'
+import SignModal from './SignModal'
 
 const RULE = [{ required: true }]
 const { Item, useForm } = Form
@@ -34,7 +35,13 @@ const Login = () => {
           <Item label="请选择登录角色" name="role_id">
             <RoleSelector />
           </Item>
-          <Button onClick={submit}>登录</Button>
+          <div className="flex gap-[10px]">
+            <Button onClick={submit}>登录</Button>
+            <SignModal
+              render={(click) => <Button onClick={click}>注册</Button>}
+              onOk={() => {}}
+            />
+          </div>
         </Form>
       </div>
     </div>
