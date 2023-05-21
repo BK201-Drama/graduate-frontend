@@ -34,6 +34,11 @@ export const routers = [
         component: lazy(() => import('@/pages/aboutInterview/Reversing')),
         forceAuth: true,
       },
+      {
+        path: '/interview/record',
+        component: lazy(() => import('@/pages/aboutInterview/Record')),
+        forceAuth: true,
+      },
     ],
   },
   {
