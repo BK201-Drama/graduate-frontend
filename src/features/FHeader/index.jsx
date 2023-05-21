@@ -3,12 +3,14 @@ import { navHelper } from '@/core/routes/navHelper'
 
 const FHeader = () => {
   const navInstance = navHelper()
+  const { permissionStore } = useStores()
 
   const logout = () => {
     localStorage.removeItem('access_token')
     localStorage.removeItem('refresh_token')
     localStorage.removeItem('user')
     navInstance.toLogin()
+    permissionStore.resetAllPermission()
   }
 
   return (

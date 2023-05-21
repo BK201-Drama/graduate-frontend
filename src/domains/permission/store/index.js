@@ -41,6 +41,14 @@ class PermissionStore {
     this.allPermission = (res?.data?.data ?? []).map(fromPermissionToTreeMapper)
   }
 
+  resetAllPermission = () => {
+    this.permissionList = []
+    this.urlPermission = []
+    this.btnPermission = []
+    this.isGettenList = false
+    this.allPermission = []
+  }
+
   // 用于加载sideBar
   get permissionTree() {
     return permissionTree(this.urlPermission)
