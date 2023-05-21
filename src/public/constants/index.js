@@ -21,6 +21,11 @@ export const PERMISSION_TYPE = {
   btn: 2,
 }
 
+export const PERMISSION_TYPE_NAME = {
+  [1]: 'URL权限',
+  [2]: '按钮权限',
+}
+
 export const ROLE_TYPE = {
   STUDENT: '64354e54353e35977ea1cb36',
   MASTER: '64354e54353e35977ea1cb37',

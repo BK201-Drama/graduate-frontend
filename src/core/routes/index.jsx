@@ -18,6 +18,11 @@ export const routers = [
         path: '/role/list',
         component: lazy(() => import('@/pages/userManagement/Role')),
       },
+      {
+        path: '/permission/list',
+        component: lazy(() => import('@/pages/userManagement/Permission')),
+        forceAuth: true,
+      },
     ],
   },
   {
@@ -25,7 +30,7 @@ export const routers = [
     component: () => <LayoutIndex />,
     children: [
       {
-        path: '/interview/exercise-management',
+        path: '/interview/exercise',
         component: lazy(() => import('@/pages/aboutInterview/Exercise')),
         forceAuth: true,
       },

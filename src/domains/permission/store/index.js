@@ -35,8 +35,8 @@ class PermissionStore {
     this.isGettenList = true
   }
 
-  getAllPermission = async () => {
-    if (!_.isEmpty(this.allPermission)) return
+  getAllPermission = async (force = false) => {
+    if (!_.isEmpty(this.allPermission) && !force) return
     const res = await getAllPermission()
     this.allPermission = (res?.data?.data ?? []).map(fromPermissionToTreeMapper)
   }
