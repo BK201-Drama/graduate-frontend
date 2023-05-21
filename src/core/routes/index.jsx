@@ -39,6 +39,11 @@ export const routers = [
         component: lazy(() => import('@/pages/aboutInterview/Record')),
         forceAuth: true,
       },
+      {
+        path: '/interview/:id',
+        component: lazy(() => import('@/pages/aboutInterview/Interview')),
+        forceAuth: true,
+      },
     ],
   },
   {

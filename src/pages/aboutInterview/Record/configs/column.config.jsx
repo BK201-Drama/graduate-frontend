@@ -1,4 +1,4 @@
-import { CopyOutlined, EditOutlined } from '@ant-design/icons'
+import { CopyOutlined, EditOutlined, SendOutlined } from '@ant-design/icons'
 import moment from 'moment'
 import ExerciseModal from '../components/ExerciseModal'
 import UpdateModal from '../components/UpdateModal'
@@ -6,7 +6,7 @@ import { updateEvaluation } from '@/domains/interviewRecord/repository'
 const iconStyle =
   'text-[#fff] text-[18px] w-[30px] h-[30px] flex justify-center items-center rounded-[15px]'
 
-const getColumns = ({ role_id, refresh }) => {
+const getColumns = ({ role_id, refresh, toInterview }) => {
   const masterAction =
     role_id === ROLE_TYPE.MASTER
       ? [
@@ -44,12 +44,36 @@ const getColumns = ({ role_id, refresh }) => {
                       })
                     }}
                   />
+                  <SendOutlined
+                    className={`${iconStyle} bg-[#888]`}
+                    onClick={() => {
+                      toInterview?.(_id)
+                    }}
+                  />
                 </div>
               )
             },
           },
         ]
-      : []
+      : [
+          {
+            title: '操作',
+            dataIndex: '_id',
+            key: '_id',
+            render: (_id) => {
+              return (
+                <div className="flex gap-[5px]">
+                  <SendOutlined
+                    className={`${iconStyle} bg-[#888]`}
+                    onClick={() => {
+                      toInterview?.(_id)
+                    }}
+                  />
+                </div>
+              )
+            },
+          },
+        ]
   return [
     {
       title: '专家账号',
