@@ -2,8 +2,11 @@ import ExerciseTypeCheckbox from '@/features/ExerciseTypeCheckbox'
 import moment from 'moment'
 import ExerciseList from './component/ExerciseList'
 import GenernateBtn from './component/GenernateBtn'
+import StudentExercise from './component/StudentExercise'
 // 面试界面
 const Interview = () => {
+  const loginData = JSON.parse(localStorage.getItem('loginData'))
+  const isStudent = loginData.role_id === ROLE_TYPE.STUDENT
   const { id: _id } = useParams()
   const { interviewStore } = useStores()
   interviewStore.getInterviewRecord(_id)
@@ -23,10 +26,18 @@ const Interview = () => {
       <div className="flex gap-[10px] mt-[20px]">
         <div className="w-[30vw] h-[70vh] bg-[#000]"></div>
         <div className="w-[30vw] h-[70vh] bg-[#000]"></div>
-        <div className="w-[21.5vw] h-[70vh] flex flex-col gap-[5px]">
-          <ExerciseTypeCheckbox />
-          <GenernateBtn />
-          <ExerciseList />
+        <div className="w-[21.5vw] h-[70vh]">
+          <div
+            className={`flex flex-col gap-[5px] ${isStudent ? 'hidden' : ''}`}
+          >
+            <ExerciseTypeCheckbox />
+            <GenernateBtn />
+            <ExerciseList />
+          </div>
+          <StudentExercise
+            _id={_id}
+            className={`${isStudent ? '' : 'hidden'}`}
+          />
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import { getRecordById, masterGenerateExercise } from '../repository'
-
 class InterviewStore {
   constructor() {
     makeAutoObservable(this)
