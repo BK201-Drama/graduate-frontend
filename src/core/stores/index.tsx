@@ -1,6 +1,7 @@
 import { exerciseKey, exerciseStore } from '@/domains/exercise/store'
 import { interviewKey, interviewStore } from '@/domains/interview/store'
 import { permissionKey, permissionStore } from '@/domains/permission/store'
+import { rewardStore, rewardStoreKey } from '@/domains/reward/store'
 import { roleStore, roleStoreKey } from '@/domains/role/store'
 import { createContext, useContext } from 'react'
 
@@ -10,6 +11,7 @@ function createStores() {
     [roleStoreKey]: roleStore,
     [exerciseKey]: exerciseStore,
     [interviewKey]: interviewStore,
+    [rewardStoreKey]: rewardStore,
   }
 }
 

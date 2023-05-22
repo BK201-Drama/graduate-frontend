@@ -56,6 +56,16 @@ export const routers = [
     component: () => <LayoutIndex />,
     children: [
       {
+        path: '/my-zone',
+        component: lazy(() => import('@/pages/MyZone')),
+      },
+    ],
+  },
+  {
+    path: '',
+    component: () => <LayoutIndex />,
+    children: [
+      {
         path: '/examine/commentary',
         component: lazy(() => import('@/pages/examine/Commentary')),
       },
