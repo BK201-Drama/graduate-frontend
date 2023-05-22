@@ -37,6 +37,7 @@ declare global {
   const Space: typeof import('antd')['Space']
   const Suspense: typeof import('react')['Suspense']
   const Switch: typeof import('antd')['Switch']
+  const TWO_HUNDRED: typeof import('@/public/constants')['TWO_HUNDRED']
   const Table: typeof import('antd')['Table']
   const Tabs: typeof import('antd')['Tabs']
   const Tag: typeof import('antd')['Tag']

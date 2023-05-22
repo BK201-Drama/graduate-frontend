@@ -9,6 +9,7 @@ export const requestType = {
 export const NUMBER_ONE = 1
 export const NO_FOUND_INDEX = -1
 export const NUMBER_ZERO = 0
+export const TWO_HUNDRED = 200
 
 export const BACKEND_STATUS = {
   SUCCESS: 200,

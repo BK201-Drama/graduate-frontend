@@ -1,4 +1,4 @@
-import { refreshActiveTime, getMyCurrentRecord } from '../repository'
+import { refreshActiveTime, getMyCurrentRecord, checkIn } from '../repository'
 
 class RewardStore {
   constructor() {
@@ -11,7 +11,7 @@ class RewardStore {
 
   user_name = ''
   account = ''
-  v_price = ''
+  v_price = NUMBER_ZERO
 
   getReward = () => {}
 
@@ -27,10 +27,16 @@ class RewardStore {
       data.data ?? {}
     this.standTime = active_time ?? NUMBER_ZERO
     this.checkInTime = check_in_time ?? NUMBER_ZERO
+    this.v_price = v_price ?? NUMBER_ZERO
     this.user_name = user_name
     this.account = account
-    this.v_price = v_price
   }
+
+  addVPrice = (delta) => {
+    this.v_price += delta
+  }
+
+  checkIn = () => checkIn({ v_price: this.v_price })
 }
 
 export const rewardStore = new RewardStore()

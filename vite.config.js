@@ -85,6 +85,7 @@ export default defineConfig({
             'NUMBER_ZERO',
             'BACKEND_STATUS',
             'ROLE_TYPE',
+            'TWO_HUNDRED',
           ],
         },
       ],

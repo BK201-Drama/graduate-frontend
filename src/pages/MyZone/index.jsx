@@ -3,7 +3,10 @@ import { Calendar, Progress } from 'antd'
 // 个人空间
 const MyZone = () => {
   const { rewardStore } = useStores()
-  rewardStore.getMyCurrentRecord()
+
+  useEffect(() => {
+    rewardStore.getMyCurrentRecord()
+  }, [])
 
   return (
     <div className="flex flex-col justify-between">
@@ -13,7 +16,20 @@ const MyZone = () => {
           <div>姓名：{rewardStore.user_name}</div>
           <div>账号：{rewardStore.account}</div>
           <div>代币数：{rewardStore.v_price}</div>
-          <Button>立即签到+200</Button>
+          <Button
+            disabled={rewardStore.checkInTime < NUMBER_ZERO}
+            onClick={() => {
+              console.log(rewardStore.checkInTime)
+              rewardStore.checkIn().then(() => {
+                message.success('签到成功')
+                rewardStore.addVPrice(TWO_HUNDRED)
+              })
+            }}
+          >
+            {rewardStore.checkInTime >= NUMBER_ZERO
+              ? '立即签到+200'
+              : '你已签到'}
+          </Button>
         </div>
       </div>
       <div className="p-[10px]">
