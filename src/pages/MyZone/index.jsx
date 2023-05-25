@@ -1,4 +1,5 @@
-import { Calendar, Progress } from 'antd'
+import { Calendar } from 'antd'
+import ActiveProgress from './components/ActiveProgress'
 
 // 个人空间
 const MyZone = () => {
@@ -17,18 +18,17 @@ const MyZone = () => {
           <div>账号：{rewardStore.account}</div>
           <div>代币数：{rewardStore.v_price}</div>
           <Button
-            disabled={rewardStore.checkInTime < NUMBER_ZERO}
+            disabled={rewardStore.checkInTime > NUMBER_ZERO}
             onClick={() => {
-              console.log(rewardStore.checkInTime)
-              rewardStore.checkIn().then(() => {
+              rewardStore.checkIn(TWO_HUNDRED).then(() => {
                 message.success('签到成功')
-                rewardStore.addVPrice(TWO_HUNDRED)
+                rewardStore.getMyCurrentRecord()
               })
             }}
           >
-            {rewardStore.checkInTime >= NUMBER_ZERO
+            {rewardStore.checkInTime <= NUMBER_ZERO
               ? '立即签到+200'
-              : '你已签到'}
+              : '今日你已签到'}
           </Button>
         </div>
       </div>
@@ -40,11 +40,8 @@ const MyZone = () => {
             fullscreen={false}
           />
           <div className="p-[2px] w-[35vw] h-[50vh] border-[1px] border-[#000] border-solid rounded-[8px]">
-            <div className="w-[100%] h-[20%] bg-[#a48f8e] flex items-center gap-[10px]">
-              <Progress percent={130} size="small" showInfo={false} />
-              <Button>可领取奖励+200</Button>
-            </div>
-            <div className="w-[100%] h-[80%] bg-[#008c8c]"></div>
+            {rewardStore.checkInTime > NUMBER_ZERO && <ActiveProgress />}
+            {/* <div className="w-[100%] h-[80%] bg-[#008c8c]"></div> */}
           </div>
         </div>
       </div>

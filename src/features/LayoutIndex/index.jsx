@@ -21,7 +21,6 @@ const LayoutIndex = () => {
       rewardStore.addStandTime(activeTime)
       document.removeEventListener('webkitvisibilitychange')
     } else start.current = now
-    console.log('rewardStore.standTime', rewardStore.standTime)
   })
 
   return (
