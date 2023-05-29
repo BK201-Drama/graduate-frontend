@@ -3,6 +3,7 @@ import moment from 'moment'
 import ExerciseList from './component/ExerciseList'
 import GenernateBtn from './component/GenernateBtn'
 import StudentExercise from './component/StudentExercise'
+import VideoFC from './component/VideoFC'
 // 面试界面
 const Interview = () => {
   const loginData = JSON.parse(localStorage.getItem('loginData'))
@@ -24,8 +25,15 @@ const Interview = () => {
         <div>学生账号：{interviewStore.interview_stu}</div>
       </div>
       <div className="flex gap-[10px] mt-[20px]">
-        <div className="w-[30vw] h-[70vh] bg-[#000]"></div>
-        <div className="w-[30vw] h-[70vh] bg-[#000]"></div>
+        <VideoFC
+          interview_room={interviewStore.interview_room}
+          account={loginData.account}
+          otherAccount={
+            loginData.account === interviewStore.interview_mas
+              ? interviewStore.interview_mas
+              : interviewStore.interview_stu
+          }
+        />
         <div className="w-[21.5vw] h-[70vh]">
           <div
             className={`flex flex-col gap-[5px] ${isStudent ? 'hidden' : ''}`}

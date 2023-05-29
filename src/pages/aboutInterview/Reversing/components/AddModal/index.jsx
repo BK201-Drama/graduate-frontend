@@ -33,7 +33,7 @@ const AddModal = ({ render, onOk, defaultValue }) => {
         destroyOnClose={true}
       >
         <Form form={formInstance}>
-          <Item name="range" label="题型" rules={RULE}>
+          <Item name="range" label="时间段" rules={RULE}>
             <TimeStampRangePicker />
           </Item>
         </Form>
