@@ -1,5 +1,6 @@
 import Login from '@/pages/Login'
 import AuthUrl from './AuthUrl'
+import LayoutIndex from '@/features/LayoutIndex'
 
 export const routers = [
   {
@@ -68,6 +69,7 @@ export const routers = [
       {
         path: '/examine/commentary',
         component: lazy(() => import('@/pages/examine/Commentary')),
+        forceAuth: true
       },
     ],
   },
@@ -87,6 +89,24 @@ export const routers = [
       },
     ],
   },
+  {
+    path: '',
+    component: () => <LayoutIndex/>,
+    children: [{
+      path: '/choice-exam/all-papers',
+      component: lazy(() => import('@/pages/choiceExam/allPapers')),
+      forceAuth: true,
+    }, {
+        path: '/choice-exam/exam-paper',
+        component: lazy(() => import('@/pages/choiceExam/examPaper')),
+        forceAuth: true
+    }, {
+      path: '/choice-exam/check-paper',
+      component: lazy(() => import('@/pages/choiceExam/checkPaper')),
+      forceAuth: true
+    }
+    ]
+  }
 ]
 
 export const changeRouter = (routers) => {

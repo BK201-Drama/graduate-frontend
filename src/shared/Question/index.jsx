@@ -7,6 +7,7 @@
  * id：题目对应的id
  * onChange：传入选择题目的函数
  **/
+import './index.less'
 const Question = ({
   title,
   questionOrder,
@@ -23,9 +24,9 @@ const Question = ({
     <div id={`${id}`} className={className}>
       <div className="flex items-center gap-[2px]">
         {!_.isNil(questionOrder) ? <div>{`${order}.`}</div> : null}
-        <div>{title ?? '-'}</div>
+        <div className="text-[18px]">{title ?? '-'}</div>
       </div>
-      <Radio.Group options={options ?? []} onChange={change} />
+      <Radio.Group className="question-opt" options={options ?? []} onChange={change} />
     </div>
   )
 }
