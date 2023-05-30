@@ -1,4 +1,12 @@
+import {
+  hasRTCPeerConnection,
+  hasUserMedia,
+  configuration,
+  mediaDevices,
+} from './utils'
+
 const VideoFC = ({ interview_room, account, otherAccount }) => {
+  // warning: 狗屎代码，这边建议直接找个sdk用，不然土豆服务器扛不住
   useEffect(() => {
     if (!(account && interview_room && otherAccount)) return
     const connection = new WebSocket('ws://localhost:9000')
@@ -83,9 +91,7 @@ const VideoFC = ({ interview_room, account, otherAccount }) => {
             answer: answer,
           })
         },
-        function (error) {
-          alert('An error has occurred')
-        }
+        () => alert('An error has occurred')
       )
     }
     // 发送answer
@@ -106,61 +112,20 @@ const VideoFC = ({ interview_room, account, otherAccount }) => {
       localConnection.onaddstream = null
       setupPeerConnection(stream)
     }
-    // 判断可以获取本地摄像头视频流
-    function hasUserMedia() {
-      navigator.getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia ||
-        navigator.msGetUserMedia
-      return !!navigator.getUserMedia
-    }
-    // 判断浏览器支持WebRTC
-    function hasRTCPeerConnection() {
-      window.RTCPeerConnection =
-        window.RTCPeerConnection ||
-        window.webkitRTCPeerConnection ||
-        window.mozRTCPeerConnection
-      window.RTCSessionDescription =
-        window.RTCSessionDescription ||
-        window.webkitRTCSessionDescription ||
-        window.mozRTCSessionDescription
-      window.RTCIceCandidate =
-        window.RTCIceCandidate ||
-        window.webkitRTCIceCandidate ||
-        window.mozRTCIceCandidate
-      return !!window.RTCPeerConnection
-    }
+
     // 开始尝试连接
     function startConnection() {
       if (hasUserMedia()) {
-        navigator.mediaDevices
-          .getUserMedia({
-            video: true,
-            audio: true,
-          })
-          .then(
-            (myStream) => {
-              stream = myStream
-              localVideo.srcObject = stream
-              if (hasRTCPeerConnection()) {
-                setupPeerConnection(stream)
-              } else {
-                alert('sorry,your browser does not support webRTC')
-              }
-            },
-            (err) => console.log(err)
-          )
-      } else {
-        alert('sorry, your browser does not support webRTC')
-      }
+        mediaDevices((myStream) => {
+          stream = myStream
+          localVideo.srcObject = stream
+          if (hasRTCPeerConnection()) setupPeerConnection(stream)
+          else alert('sorry,your browser does not support webRTC')
+        })
+      } else alert('sorry, your browser does not support webRTC')
     }
     // 创建RTCPeerConnection
     function setupPeerConnection(stream) {
-      const configuration = {
-        iceServers: [{ url: 'stun:stun.1.google.com:19302' }],
-      }
-
       localConnection = new RTCPeerConnection(configuration)
       // 设置流的监听
       localConnection.addStream(stream)
@@ -190,9 +155,7 @@ const VideoFC = ({ interview_room, account, otherAccount }) => {
           })
           localConnection.setLocalDescription(offer)
         },
-        function (error) {
-          alert('an error has occurred')
-        }
+        () => alert('an error has occurred')
       )
     }
   }, [account, interview_room])
