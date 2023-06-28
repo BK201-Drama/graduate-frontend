@@ -61,3 +61,32 @@ yarn commit
 1. 用户管理的 RBAC
 
 - 统一全在 permissionStore 进行控制，其中有部分是按钮级别控制，请使用 permissionWrapper 组件统一处理
+- 权限有 3 种
+
+1. url 权限：指：用户有哪些权限，可以进入哪个界面，比如：我是淘宝用户，我不能进入淘宝管理端。
+2. 按钮权限：指：我和你都可以进入同一个页面，但是你是 vip，你能按一个特权按钮，我不能按。
+3. debugger 权限：debugger 权限就是防止用户不通过前端，直接访问后端调用不属于该权限的接口
+
+# 关于 vscode 的使用
+
+记得下载以下插件：
+
+- 中文插件：Chinese
+- 贴心报错插件：Error Lens
+- lint 插件：ESLint
+- git 提交记录插件：Git Graph
+- ES7+ React/Redux/React-Native snippets：快捷创建组件插件（输入 rafce 即可帮你完成组件骨架创建）
+- JavaScript (ES6) code snippets：快捷创建一些代码（输入 ecl 完成类的初始化创建）
+- Pritter：代码格式化
+- GitLens —— Git supercharged：显示代码最后一次是谁写的，便于甩锅（
+
+1. 复制/粘贴/剪切/保存/文件内搜索：ctrl + C/V/X/S/F
+2. 开启/关闭工作区：ctrl+B
+3. 去除冗余 import：shift+alt+O
+4. 关掉当前文件：ctrl+W
+5. 关掉全部打开文件：ctrl+K+ctrl+W（组合指令）
+6. 针对单词光标快速移动：shift+ ← / →
+7. 光标快速删除：shift+backspace
+8. 多光标批量操作：鼠标中键一直按，然后移动
+9. 代码补全建议：ctrl+space
+10. 格式化代码：鼠标右键 选择：格式化文档
