@@ -17,6 +17,10 @@
 5. src 下的 utils 不允许依赖 public 的常量数据，只有 public 下的 utils 才能依赖常量数据
 6. 在 page 里面，书写规定不允许小写开头的目录是组件，大写开头才允许是组件
 
+# 目录参考
+
+- 整洁前端架构：https://phodal.github.io/clean-frontend/
+
 # 提交代码流程
 
 1. 在多人协作模式里，如果要开发自己的功能，需要从 master 里面 checkout 一个自己的开发功能的分支：（本项目随便在 dev 里面 checkout 也行）
