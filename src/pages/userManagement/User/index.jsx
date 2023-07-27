@@ -6,6 +6,7 @@ import AddModal from './components/AddModal'
 import getColumns from './configs/column.config'
 import { formConfig } from './configs/form.config'
 import { createUser } from '@/domains/user'
+import rTablePropConfig from '@/shared/RTablePropsConfig'
 
 const User = () => {
   const [formInstance] = Form.useForm()
@@ -47,7 +48,7 @@ const User = () => {
           </Tooltip>
         }
       />
-      <Table columns={columns} {...tableProps} rowKey="_id" />
+      <Table columns={columns} {...rTablePropConfig(tableProps)} rowKey="_id" />
     </>
   )
 }

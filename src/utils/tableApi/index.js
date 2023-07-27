@@ -15,7 +15,7 @@ const getTableData =
       } = res
       return {
         list,
-        count,
+        total: count,
       }
     })
   }
